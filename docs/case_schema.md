@@ -75,13 +75,14 @@ What one test case looks like, and the prompt used to generate the 80 synthetic 
 | `unclear` | 2 | 8 |
 | **Total** | **20** | **80** |
 
+*Note (5 Oct 2026):* this is the mix used for generation. After labelling, `authorisation_issue` was merged into `processing_error` (see `docs/categories.md`), so the generator's `authorisation_issue` cases now carry other gold labels.
+
 Each batch has 6 ambiguous cases (30%). The smallest categories have 8 cases, so up to 2 could be removed during labelling while keeping the minimum of 6 per category.
 
 ---
 
-## Generation prompt
+## Generation prompt 
 
-Start a new chat, paste everything inside the box, and save the output as `data/cases_raw.csv`. For batches 2–4, send the follow-up message at the end of the box and paste only the data rows (not the header) under the existing ones.
 
 ```text
 You are generating synthetic test cases for evaluating an AI that helps small UK merchants triage card payment disputes (chargebacks). The data must be entirely fictional: no real people, no real company or brand names, no real card numbers or addresses.

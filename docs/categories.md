@@ -1,12 +1,13 @@
 # Dispute categories
 
-This is the label set the classifier will predict. It is based on public card-scheme guidance only (sources at the bottom).
+ This is the label set the classifier will predict. It is based on public card-scheme guidance only (sources at the bottom).
 
 ## Design choices
 
 - **Merchant-facing labels, scheme-mapped.** A small merchant thinks "the customer says it never arrived", not "Visa 13.1 / Mastercard 4853". So the labels describe what the cardholder is claiming in plain language, and each one maps to the scheme reason codes behind it.
 - **Classify the claim, not the truth.** A cardholder who made the purchase but files it as fraud ("friendly fraud") is still labelled `fraud_unauthorised`, because that is the reason code the merchant has to answer. Whether the claim is true is a question for the evidence step, not the classification step.
-- **7 categories + 1 fallback.** That's few enough for a 4B model to tell apart reliably, and enough to cover the disputes a small online merchant actually sees. `unclear` is a real output: low confidence should send the case to a human, not force a guess.
+- **6 categories + 1 fallback.** That's few enough for a 4B model to tell apart reliably, and enough to cover the disputes a small online merchant actually sees. `unclear` is a real output: it sends the case to human review rather than forcing a guess, and it isn't scored as a category.
+- **Revised 5 Oct 2026 after labelling:** `authorisation_issue` was merged into `processing_error`. While labelling the 80 eval cases, none of the 8 generated authorisation cases read as a distinct category: in the cardholder's words, "declined but still charged" or "charged months later" is indistinguishable from a processing error. The difference only shows in the issuer's reason code, which the model doesn't see.
 - **Out of scope:** ATM cash disputes (Visa 13.9), original credit transactions (Visa 13.8), fraud-monitoring-programme disputes (Visa 10.5), Mastercard instalment billing (4850) and Europe-domestic disputes (4999). None of these is a dispute a small merchant can act on.
 
 ## Categories at a glance
@@ -18,8 +19,7 @@ This is the label set the classifier will predict. It is based on public card-sc
 | 3 | `not_as_described` | "It's broken / fake / not what was advertised." | 13.3, 13.4, 13.5 | 4853 |
 | 4 | `subscription_cancelled` | "I cancelled but was charged again." | 13.2 | 4841 |
 | 5 | `refund_not_processed` | "I returned it or cancelled, and no refund came." | 13.6, 13.7 | 4853 (legacy 4860) |
-| 6 | `processing_error` | "I was charged twice / the wrong amount / in the wrong currency / I already paid another way." | 12.x | 4831, 4834, 4842, 4846 |
-| 7 | `authorisation_issue` | Usually raised by the issuer, not the customer: the transaction wasn't properly authorised or was submitted too late. | 11.1–11.3 | 4808 |
+| 6 | `processing_error` | "I was charged twice / the wrong amount / in the wrong currency / I already paid another way / I was declined but still charged / it was charged months later." | 11.x, 12.x | 4808, 4831, 4834, 4842, 4846 |
 | – | `unclear` | Not enough information, or it plausibly fits two or more categories. | – | – |
 
 ## Category detail
@@ -55,20 +55,15 @@ This is the label set the classifier will predict. It is based on public card-sc
 - **Watch for:** If there is no return or cancellation, only dissatisfaction with the item, it's `not_as_described`.
 
 ### 6. `processing_error`
-- **Definition:** The transaction was processed incorrectly: a duplicate, the wrong amount, the wrong currency, late presentment, or the customer paid by another method as well.
-- **Signals:** "charged twice", "double charge", "wrong amount", "different from receipt", "paid cash", "charged in dollars".
-- **Key evidence:** Settlement and batch logs showing two separate purchases (or that only one settled); itemised receipt matching the charged amount; currency / DCC disclosure; records showing the card was the only payment method used.
+- **Definition:** The transaction was processed incorrectly: a duplicate, the wrong amount, the wrong currency, late presentment, the customer paid by another method as well, or the payment was declined or never properly authorised but was still taken.
+- **Signals:** "charged twice", "double charge", "wrong amount", "different from receipt", "paid cash", "charged in dollars", "said declined but money left my account", "appeared months later".
+- **Key evidence:** Settlement and batch logs showing two separate purchases (or that only one settled); itemised receipt matching the charged amount; currency / DCC disclosure; records showing the card was the only payment method used; authorisation approval code and timestamp; proof of timely presentment.
 - **Watch for:** A pending authorisation plus a settled charge often looks like a duplicate to customers but isn't one.
-
-### 7. `authorisation_issue`
-- **Definition:** The issuer disputes the authorisation itself: declined, never obtained, or the transaction was submitted outside the time limit.
-- **Signals:** Rarely in the customer's own words; it shows up as an issuer reason code or as "declined but still charged".
-- **Key evidence:** Authorisation approval code and timestamp; proof of timely presentment.
-- **Watch for:** Small merchants rarely see this directly. It's in the label set for completeness, and it's the category most likely to come from a reason code rather than free text.
 
 ### `unclear` (fallback)
 - **Use when:** Confidence is below threshold, the narrative is too short, or two categories are equally plausible (e.g. "arrived damaged and they won't refund me").
 - **Action:** Route to human review with the top two candidate categories.
+- **Scoring:** a system output of `unclear` counts as "sent to review", not as right or wrong. Only 1 of the 80 eval cases has `unclear` as its gold label, because most cases the generator wrote as unclear could be resolved on careful reading.
 
 ## Confusion pairs to test in the eval set
 

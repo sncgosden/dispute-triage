@@ -12,12 +12,12 @@ A dispute arrives as a reason code and the customer's short complaint, with a ti
 *When a dispute lands, help me understand what I'm being accused of and exactly what evidence to send, so I can respond correctly before the deadline without becoming a card-scheme expert.*
 
 ## Scope
-**In:** For each case, the system returns JSON with: the category (one of the 7 in `docs/categories.md`, or `unclear`), a confidence score, a checklist of recommended evidence, a plain-language explanation that cites the retrieved rule passages, and a human-review flag. Pipeline: retrieve rules (embeddings) → classify → recommend evidence → explain. Compares Qwen 3.5 4B, Qwen 3.5 9B (both local) and Claude.
+**In:** For each case, the system returns JSON with: the category (one of the 6 in `docs/categories.md`, or `unclear`), a confidence score, a checklist of recommended evidence, a plain-language explanation that cites the retrieved rule passages, and a human-review flag. Pipeline: retrieve rules (embeddings) → classify → recommend evidence → explain. Compares Qwen 3.5 4B, Qwen 3.5 9B (both local) and Claude.
 
 **Out:** Submitting responses to providers; predicting win likelihood or advising whether to fight; fraud prevention; real merchant or cardholder data; live integration with payment providers; ATM, instalment and other out-of-scope dispute types; legal advice.
 
 ## Success metrics
-Measured per model on the labelled synthetic evaluation set: 80 cases (60 minimum), about 70% easy and 30% ambiguous, with at least 6 cases per category.
+Measured per model on the labelled synthetic evaluation set: 80 cases (60 minimum), about 70% easy and 30% ambiguous, with at least 6 cases per category. Accuracy is calculated on cases the system does not mark `unclear`; those count as sent to review and are capped by the review-rate guardrail.
 
 | Metric | Definition | Target |
 |---|---|---|
