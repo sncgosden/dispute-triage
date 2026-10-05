@@ -4,12 +4,12 @@ Model: `claude` (claude-sonnet-5-5) · prompt v1 · 80 cases
 ## Quality
 | Metric | Value | PRD target |
 |---|---|---|
-| Category accuracy (excl. `unclear`) | 76/80 (95%) | ≥ 85% |
-| Raw accuracy (all cases) | 76/80 (95%) | |
+| Category accuracy (excl. `unclear`) | 78/80 (98%) | ≥ 85% |
+| Raw accuracy (all cases) | 78/80 (98%) | |
 | Accuracy, easy | 56/56 (100%) | |
-| Accuracy, ambiguous | 20/24 (83%) | |
-| Evidence recall | 80% | ≥ 80% |
-| Evidence precision | 48% | |
+| Accuracy, ambiguous | 22/24 (92%) | |
+| Evidence recall | 83% | ≥ 80% |
+| Evidence precision | 50% | |
 | Review rate | 11/80 (14%) | ≤ 30% |
 | Confident-but-wrong rate | 0/69 (0%) | ≤ 5% |
 | Valid JSON (after retry) | 80/80 (100%) | 100% |
@@ -30,23 +30,21 @@ Model: `claude` (claude-sonnet-5-5) · prompt v1 · 80 cases
 | Category | Correct | Evidence recall |
 |---|---|---|
 | fraud_unauthorised | 11/11 (100%) | 92% |
-| not_as_described | 16/17 (94%) | 80% |
-| not_received | 11/12 (92%) | 89% |
-| processing_error | 17/19 (89%) | 87% |
-| refund_not_processed | 14/14 (100%) | 64% |
-| subscription_cancelled | 7/7 (100%) | 60% |
+| not_as_described | 16/17 (94%) | 82% |
+| not_received | 11/11 (100%) | 97% |
+| processing_error | 17/18 (94%) | 92% |
+| refund_not_processed | 15/15 (100%) | 64% |
+| subscription_cancelled | 8/8 (100%) | 65% |
 
 ## Errors (gold → predicted)
-- not_received → refund_not_processed: 1  (C016)
-- processing_error → subscription_cancelled: 1  (C030)
+- not_as_described → refund_not_processed: 1  (C016)
 - processing_error → fraud_unauthorised: 1  (C055)
-- not_as_described → refund_not_processed: 1  (C065)
 
 ## Calibration (does confidence match accuracy?)
 | Confidence | Cases | Accuracy |
 |---|---|---|
 | 0.00–0.50 | 0 | – |
-| 0.50–0.70 | 11 | 7/11 (64%) |
+| 0.50–0.70 | 11 | 9/11 (82%) |
 | 0.70–0.85 | 10 | 10/10 (100%) |
 | 0.85–0.95 | 35 | 35/35 (100%) |
 | 0.95–1.00 | 24 | 24/24 (100%) |
@@ -54,7 +52,7 @@ Model: `claude` (claude-sonnet-5-5) · prompt v1 · 80 cases
 ## Review threshold sweep (gap 0.15, retrieval 0.50 held fixed)
 | Confidence threshold | Review rate | Confident-but-wrong |
 |---|---|---|
-| 0.50 | 1/80 (1%) | 4/79 (5%) |
+| 0.50 | 1/80 (1%) | 2/79 (3%) |
 | 0.60 | 7/80 (9%) | 1/73 (1%) |
 | 0.70 ← current | 11/80 (14%) | 0/69 (0%) |
 | 0.80 | 15/80 (19%) | 0/65 (0%) |

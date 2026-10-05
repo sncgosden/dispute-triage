@@ -33,7 +33,7 @@ from retrieve import general_rules, retrieve
 ROOT = Path(__file__).resolve().parent.parent
 CASES_PATH = ROOT / "data" / "cases_labelled.csv"
 
-PROMPT_VERSION = "v1"
+PROMPT_VERSION = "v2"  # default; choose with --prompt
 
 CATEGORIES = [
     "fraud_unauthorised",
@@ -70,7 +70,7 @@ TEMPERATURE = 0
 def effective_temperature(model_name):
     return "default (not settable)" if model_name == "claude" else TEMPERATURE
 
-SYSTEM_PROMPT = f"""You help small UK merchants respond to card payment disputes (chargebacks).
+SYSTEM_PROMPT_V1 = f"""You help small UK merchants respond to card payment disputes (chargebacks).
 You are given one dispute and some rule sections. Classify what the cardholder is claiming, recommend the evidence the merchant should submit, and explain briefly.
 
 Categories (classify the cardholder's claim, not whether it is true):
@@ -91,6 +91,34 @@ Explanation: at most 3 short plain-English sentences (under 60 words) for the me
 
 Reply with ONLY a JSON object, no other text, in exactly this shape:
 {{"category": "<one category>", "confidence": <number>, "second_category": "<next most likely category>", "second_confidence": <number>, "required_evidence": ["<id>", "..."], "explanation": "<text>"}}"""
+
+
+
+# v2 (after the v1 failure analysis, docs/failure_analysis_v1.md):
+# H1 claim-priority rule, H2 recurring-charge signal, the received-or-used
+# test, calibration guidance for confidence, and short worked examples.
+# The examples are invented and deliberately unlike the eval cases.
+SYSTEM_PROMPT_V2 = SYSTEM_PROMPT_V1.replace(
+    "Evidence: choose 2 to 4",
+    """Deciding between categories:
+- Received or used? If the customer never received or used what they paid for, it's not_received. If they received or used it and it was poor or different, it's not_as_described.
+- Two claims in one complaint? Classify the claim the merchant must act on first: (1) a refund or credit the merchant promised or confirmed that hasn't arrived: refund_not_processed; (2) a recurring or automatic repeat charge after the customer cancelled or gave notice: subscription_cancelled; (3) otherwise, the complaint about the goods or service itself.
+- A second automatic charge for a pack, plan or membership after the customer gave notice counts as a recurring charge.
+
+Worked examples (category, confidence):
+- "The lamp arrived cracked. They said they'd refund £20 a month ago but nothing has come through." -> refund_not_processed 0.75 (two claims; the promised refund comes first)
+- "I cancelled my meal-kit plan in March but they sent and charged April's box anyway." -> subscription_cancelled 0.9
+- "Ordered size 9 trainers, received size 7." -> not_as_described 0.95
+
+Evidence: choose 2 to 4""",
+).replace(
+    "Confidence: your probability (0 to 1) that the category is correct. Be honest: use below 0.7 when the complaint could reasonably fit another category.",
+    "Confidence: your probability (0 to 1) that the category is correct. Use 0.9 or above only when one category clearly fits and no other is plausible. Use 0.6 to 0.8 when you applied the two-claims rule or a second category is reasonable. Use below 0.6 when the complaint is vague.",
+)
+assert SYSTEM_PROMPT_V2 != SYSTEM_PROMPT_V1
+
+PROMPTS = {"v1": SYSTEM_PROMPT_V1, "v2": SYSTEM_PROMPT_V2}
+SYSTEM_PROMPT = PROMPTS[PROMPT_VERSION]
 
 
 def build_prompt(case, sections):
@@ -251,6 +279,7 @@ def run_metadata(args, model_name):
 
 
 def main():
+    global PROMPT_VERSION, SYSTEM_PROMPT
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("--model", required=True, choices=["qwen-small", "qwen-large", "claude"])
     parser.add_argument("--ids", nargs="+", help="case ids, e.g. C001 C002")
@@ -259,8 +288,11 @@ def main():
     parser.add_argument("-k", type=int, default=3, help="rule sections to retrieve (default 3)")
     parser.add_argument("--out", help="append results to this .jsonl file")
     parser.add_argument("--redo", action="store_true", help="rerun cases already in --out (default: skip them)")
+    parser.add_argument("--prompt", choices=sorted(PROMPTS), default=PROMPT_VERSION, help="prompt version (default %(default)s)")
     parser.add_argument("--show-prompt", action="store_true", help="print the prompt and stop (no model call)")
     args = parser.parse_args()
+
+    PROMPT_VERSION, SYSTEM_PROMPT = args.prompt, PROMPTS[args.prompt]
 
     cases = load_cases()
     if args.ids:

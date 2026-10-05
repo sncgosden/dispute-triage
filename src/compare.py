@@ -109,7 +109,7 @@ def main():
         ("Accuracy, easy / ambiguous", lambda r: f"{pct(r['acc_easy'])} / {pct(r['acc_amb'])}", ""),
         ("Evidence recall", lambda r: mark(pct(r["recall"]), r["recall"] >= 0.80), "≥ 80%"),
         ("Evidence precision", lambda r: pct(r["precision"]), ""),
-        (f"Confident-but-wrong @ {CURRENT_THRESHOLD}", lambda r: mark(pct(r["cbw_now"]), r["cbw_now"] <= MAX_CONFIDENT_WRONG), "≤ 5%"),
+        (f"Confident-but-wrong @ {CURRENT_THRESHOLD}", lambda r: mark(f"{r['cbw_now']:.1%}", r["cbw_now"] <= MAX_CONFIDENT_WRONG), "≤ 5%"),
         (f"Review rate @ {CURRENT_THRESHOLD}", lambda r: mark(pct(r["review_now"]), r["review_now"] <= MAX_REVIEW_RATE), "≤ 30%"),
         ("Safe threshold range", lambda r: f"{r['safe'][0]:.2f}–{r['safe'][1]:.2f}" if r["safe"] else "none ✗", "meets both"),
         ("…review / confident-but-wrong at top of range", lambda r: "{} / {}".format(*map(pct, safety_at(r["rows"], r["safe"][1]))) if r["safe"] else "–", ""),

@@ -75,6 +75,9 @@ Rules decided while labelling or testing, so labels, prompts and reviewers apply
 | 5 Oct 2026 | `authorisation_issue` merged into `processing_error` | Not distinguishable from the cardholder's own words | 0 gold labels existed |
 | 5 Oct 2026 | A charge taken weeks or months late is `processing_error` | Follows from the merge (Visa 11.3, Mastercard 4842) | C010 (was `unclear`) |
 | 5 Oct 2026 | Received-or-used test: not received or used = `not_received`; received but poor = `not_as_described` | Smoke test exposed moved or cancelled events as ambiguous; matches Visa 13.1 and gives a yes/no test | C006, C046 (were `not_as_described`) |
+| After v1 runs | **H1, claim priority:** with two claims, classify the one the merchant must act on first: (1) a promised or confirmed refund that hasn't arrived → `refund_not_processed`; (2) a recurring charge after cancelling → `subscription_cancelled`; (3) otherwise, the goods or service complaint | Half of v1 errors (8/16) were multi-claim complaints with no rule for which claim wins | C065 (was `not_as_described`) |
+| After v1 runs | **H2, recurring signal:** a second automatic charge for a pack, plan or membership after the customer gave notice is a recurring charge | 4/16 v1 errors were recurring vs one-off confusion | C030 (was `processing_error`) |
+| After v1 runs | Received-or-used test applied consistently | C016 was labelled `not_received` although the course was delivered | C016 (was `not_received`) |
 
 ## Confusion pairs to test in the eval set
 

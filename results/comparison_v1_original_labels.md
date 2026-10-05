@@ -1,0 +1,43 @@
+# Model comparison (v1, ORIGINAL labels: before the H1/H2 relabels of C016, C030, C065)
+
+Same 80 cases, prompt, retrieval and scorer for every run. Claude priced at $2.0/$10.0 per M tokens.
+
+## Quality, safety, speed and cost
+
+| Metric | claude_v1 | qwen4b_v1 | qwen9b_v1 | Target |
+|---|---|---|---|---|
+| Model | `claude-sonnet-5-5` | `qwen3.5-4b` | `qwen3.5-9b-mlx` |  |
+| Category accuracy | 95% ✓ | 94% ✓ | 92% ✓ | ≥ 85% |
+| Accuracy, easy / ambiguous | 100% / 83% | 100% / 78% | 98% / 79% |  |
+| Evidence recall | 80% ✓ | 75% ✗ | 70% ✗ | ≥ 80% |
+| Evidence precision | 48% | 46% | 40% |  |
+| Confident-but-wrong @ 0.7 | 0% ✓ | 6% ✗ | 8% ✗ | ≤ 5% |
+| Review rate @ 0.7 | 14% ✓ | 2% ✓ | 1% ✓ | ≤ 30% |
+| Safe threshold range | 0.51–0.87 | none ✗ | 0.86–0.95 | meets both |
+| …review / confident-but-wrong at top of range | 30% / 0% | – | 19% / 3% |  |
+| Valid JSON first try | 99% | 96% | 100% |  |
+| Latency median / p90 | 2.5s / 6.3s | 4.5s / 7.1s | 11.7s / 17.4s |  |
+| Cost per 1,000 cases | $8.57 | £0 (local) | £0 (local) |  |
+
+*Safe threshold range* = every confidence threshold at which confident-but-wrong ≤ 5% AND review rate ≤ 30%. The top of the range is the safest setting that still respects the review cap. Confidence scales differ between models, so one shared threshold is not fair to all of them.
+
+## Error overlap
+
+- Wrong for **every** model (2): C016, C030. These are likely hard or debatable cases; recheck their labels.
+- Wrong only for claude_v1 (0): none
+- Wrong only for qwen4b_v1 (2): C044, C072
+- Wrong only for qwen9b_v1 (2): C047, C056
+- Wrong for at least one model: 9 of 80 cases
+
+| Case | Gold | claude_v1 | qwen4b_v1 | qwen9b_v1 |
+|---|---|---|---|---|
+| C016 | not_received | refund_not_processed (0.55) | not_as_described (0.85) | not_as_described (0.85) |
+| C030 | processing_error | subscription_cancelled (0.5) | subscription_cancelled (0.92) | subscription_cancelled (0.85) |
+| C044 | refund_not_processed | ✓ | not_as_described (0.92) | ✓ |
+| C047 | not_as_described | ✓ | ✓ | refund_not_processed (0.85) |
+| C048 | refund_not_processed | ✓ | subscription_cancelled (0.92) | subscription_cancelled (0.95) |
+| C055 | processing_error | fraud_unauthorised (0.62) | fraud_unauthorised (0.92) | ✓ |
+| C056 | not_as_described | ✓ | ✓ | subscription_cancelled (0.85) |
+| C065 | not_as_described | refund_not_processed (0.55) | ✓ | refund_not_processed (0.95) |
+| C072 | refund_not_processed | ✓ | unclear (0.85) | ✓ |
+
