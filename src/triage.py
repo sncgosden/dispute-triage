@@ -5,6 +5,11 @@ Usage (project root, venv active, LM Studio running for retrieval and Qwen):
     python src/triage.py --model claude --n 10              # first 10 cases
     python src/triage.py --model claude --n 10 --out results/claude_smoke.jsonl
     python src/triage.py --model claude --ids C001 --show-prompt   # print the prompt, no API call
+    python src/triage.py --model qwen-small --all --out results/qwen4b_v1.jsonl
+
+Results are appended one JSON line per case. Cases already in --out are
+skipped, so an interrupted run continues where it stopped. Run settings
+(model, prompt version, LM Studio state, git commit) go to <out>.meta.jsonl.
 
 Only merchant_type, amount, date and dispute_text are sent to the model. Gold
 labels never go into the prompt.
@@ -13,9 +18,13 @@ labels never go into the prompt.
 import argparse
 import csv
 import json
+import os
+import platform
 import re
+import subprocess
 import sys
 import time
+from datetime import datetime
 from pathlib import Path
 
 from llm import LLMError, call
@@ -52,6 +61,14 @@ EVIDENCE_IDS = [
 CONFIDENCE_THRESHOLD = 0.70
 MIN_CONFIDENCE_GAP = 0.15
 MIN_RETRIEVAL_SCORE = 0.50
+
+# 0 = always pick the most likely next token (most repeatable). Applied to the
+# local Qwen models. Claude can't be set (see llm.py) and runs at its default.
+TEMPERATURE = 0
+
+
+def effective_temperature(model_name):
+    return "default (not settable)" if model_name == "claude" else TEMPERATURE
 
 SYSTEM_PROMPT = f"""You help small UK merchants respond to card payment disputes (chargebacks).
 You are given one dispute and some rule sections. Classify what the cardholder is claiming, recommend the evidence the merchant should submit, and explain briefly.
@@ -139,7 +156,7 @@ def triage(case, model_name, k=3, max_tokens=1000):
     retrieval_seconds = time.perf_counter() - t0
 
     prompt = build_prompt(case, sections)
-    calls = [call(model_name, prompt, system=SYSTEM_PROMPT, max_tokens=max_tokens)]
+    calls = [call(model_name, prompt, system=SYSTEM_PROMPT, max_tokens=max_tokens, temperature=TEMPERATURE)]
     data, errors = parse_reply(calls[0]["text"])
     if calls[0]["output_tokens"] is not None and calls[0]["output_tokens"] >= max_tokens:
         data, errors = None, ["reply was cut off because it was too long; keep the explanation under 60 words"]
@@ -151,7 +168,7 @@ def triage(case, model_name, k=3, max_tokens=1000):
             f"It was not valid because: {'; '.join(errors)}.\n"
             f"Reply again with ONLY the corrected JSON object."
         )
-        calls.append(call(model_name, retry_prompt, system=SYSTEM_PROMPT, max_tokens=max_tokens))
+        calls.append(call(model_name, retry_prompt, system=SYSTEM_PROMPT, max_tokens=max_tokens, temperature=TEMPERATURE))
         data, errors = parse_reply(calls[1]["text"])
         if calls[1]["output_tokens"] is not None and calls[1]["output_tokens"] >= max_tokens:
             data, errors = None, ["reply was cut off again"]
@@ -173,6 +190,7 @@ def triage(case, model_name, k=3, max_tokens=1000):
         "model": model_name,
         "model_id": calls[0]["model_id"],
         "prompt_version": PROMPT_VERSION,
+        "temperature": effective_temperature(model_name),
         "category": data["category"] if data else None,
         "confidence": data["confidence"] if data else None,
         "second_category": data["second_category"] if data else None,
@@ -206,13 +224,41 @@ def load_cases():
         return list(csv.DictReader(f))
 
 
+def run_metadata(args, model_name):
+    """Everything needed to reproduce a run, saved next to the results file."""
+    meta = {
+        "started": datetime.now().isoformat(timespec="seconds"),
+        "model": model_name,
+        "model_id": os.getenv({"qwen-small": "QWEN_SMALL", "qwen-large": "QWEN_LARGE", "claude": "CLAUDE_MODEL"}[model_name]),
+        "embed_model": os.getenv("EMBED_MODEL"),
+        "prompt_version": PROMPT_VERSION,
+        "k": args.k,
+        "max_tokens": 1000,
+        "temperature": effective_temperature(model_name),
+        "thinking": False,
+        "review_rule": {"confidence": CONFIDENCE_THRESHOLD, "gap": MIN_CONFIDENCE_GAP, "retrieval": MIN_RETRIEVAL_SCORE},
+        "platform": platform.platform(),
+        "python": platform.python_version(),
+    }
+    for key, cmd in (("git_commit", ["git", "rev-parse", "--short", "HEAD"]),
+                     ("lms_loaded_models", ["lms", "ps"]),
+                     ("lms_version", ["lms", "version"])):
+        try:
+            meta[key] = subprocess.run(cmd, capture_output=True, text=True, timeout=15, cwd=ROOT).stdout.strip()
+        except (OSError, subprocess.TimeoutExpired):
+            meta[key] = "unavailable"
+    return meta
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("--model", required=True, choices=["qwen-small", "qwen-large", "claude"])
     parser.add_argument("--ids", nargs="+", help="case ids, e.g. C001 C002")
     parser.add_argument("--n", type=int, help="run the first N cases")
+    parser.add_argument("--all", action="store_true", help="run every case")
     parser.add_argument("-k", type=int, default=3, help="rule sections to retrieve (default 3)")
     parser.add_argument("--out", help="append results to this .jsonl file")
+    parser.add_argument("--redo", action="store_true", help="rerun cases already in --out (default: skip them)")
     parser.add_argument("--show-prompt", action="store_true", help="print the prompt and stop (no model call)")
     args = parser.parse_args()
 
@@ -222,8 +268,8 @@ def main():
         cases = [c for c in cases if c["id"] in wanted]
     elif args.n:
         cases = cases[: args.n]
-    else:
-        parser.error("give --ids or --n")
+    elif not args.all:
+        parser.error("give --ids, --n or --all")
 
     try:
         if args.show_prompt:
@@ -231,28 +277,49 @@ def main():
             print("=== SYSTEM ===\n" + SYSTEM_PROMPT + "\n\n=== USER ===\n" + build_prompt(c, retrieve(c["dispute_text"], k=args.k)))
             return
 
-        out = open(args.out, "a", encoding="utf-8") if args.out else None
+        out = None
+        if args.out:
+            out_path = Path(args.out)
+            done = set()
+            if out_path.exists() and not args.redo:
+                done = {json.loads(l)["id"] for l in out_path.read_text(encoding="utf-8").splitlines() if l.strip()}
+                skipped = [c["id"] for c in cases if c["id"] in done]
+                cases = [c for c in cases if c["id"] not in done]
+                if skipped:
+                    print(f"Skipping {len(skipped)} cases already in {args.out} (use --redo to rerun them)")
+            meta_path = out_path.with_suffix(".meta.jsonl")
+            with meta_path.open("a", encoding="utf-8") as m:
+                m.write(json.dumps(run_metadata(args, args.model)) + "\n")
+            print(f"Run settings saved to {meta_path}")
+            out = out_path.open("a", encoding="utf-8")
+
         correct = 0
         for c in cases:
             r = triage(c, args.model, k=args.k)
+            r["timestamp"] = datetime.now().isoformat(timespec="seconds")
             ok = r["category"] == c["true_category"]
             correct += ok
             flag = "REVIEW" if r["needs_human_review"] else ""
             conf = f"{r['confidence']:.2f}" if r["confidence"] is not None else "  - "
+            tps = f"{r['tokens_per_second']:.0f} tok/s" if r["tokens_per_second"] else ""
+            ttft = f"ttft {r['ttft_seconds']:.2f}s" if r["ttft_seconds"] is not None else ""
             print(f"{r['id']}  {'✓' if ok else '✗'}  {str(r['category']):24} {conf}  gold={c['true_category']:24} "
                   f"json={'ok' if r['first_try_valid'] else ('retry-ok' if r['valid_json'] else 'FAIL')}  "
-                  f"{r['total_seconds']:.1f}s  {flag}")
+                  f"{r['total_seconds']:.1f}s  {ttft}  {tps}  {flag}")
             if r["invalid_evidence"]:
                 print(f"       invalid evidence ids: {r['invalid_evidence']}")
             if out:
                 out.write(json.dumps(r) + "\n")
                 out.flush()
-        print(f"\nCategory correct: {correct}/{len(cases)} (raw, before review routing)")
+        if cases:
+            print(f"\nCategory correct: {correct}/{len(cases)} (raw; run score.py for the full report)")
         if out:
             out.close()
             print(f"Saved to {args.out}")
     except LLMError as e:
         sys.exit(f"Error: {e}")
+    except KeyboardInterrupt:
+        sys.exit("\nStopped. Finished cases are saved; rerun the same command to continue where you left off.")
 
 
 if __name__ == "__main__":

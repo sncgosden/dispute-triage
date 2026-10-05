@@ -208,8 +208,8 @@ def main():
     parser.add_argument("--price-out", type=float, help="USD per million output tokens (Claude)")
     args = parser.parse_args()
 
-    if not Path(args.results).exists():
-        raise SystemExit(f"No results file at {args.results}. Run triage.py with --out {args.results} first.")
+    if not Path(args.results).exists() or not Path(args.results).read_text(encoding="utf-8").strip():
+        raise SystemExit(f"No results in {args.results}. Run triage.py with --out {args.results} first (or check it finished).")
     report, rows = score(args.results, args.price_in, args.price_out)
     print(report)
     if args.md:

@@ -58,7 +58,7 @@ def _anthropic_client():
 QWEN_NO_THINK_PREFILL = "<think>\n\n</think>\n\n"
 
 
-def _stream_qwen(model_id, prompt, system, max_tokens, thinking):
+def _stream_qwen(model_id, prompt, system, max_tokens, thinking, temperature=None):
     messages = []
     if system:
         messages.append({"role": "system", "content": system})
@@ -78,6 +78,7 @@ def _stream_qwen(model_id, prompt, system, max_tokens, thinking):
             model=model_id,
             messages=messages,
             max_tokens=max_tokens,
+            **({"temperature": temperature} if temperature is not None else {}),
             stream=True,
             stream_options={"include_usage": True},
         )
@@ -111,7 +112,7 @@ def _stream_qwen(model_id, prompt, system, max_tokens, thinking):
     return "".join(text_parts), "".join(reasoning_parts), start, first_token_at, output_tokens, input_tokens
 
 
-def _stream_claude(model_id, prompt, system, max_tokens, thinking):
+def _stream_claude(model_id, prompt, system, max_tokens, thinking, temperature=None):
     kwargs = {
         "model": model_id,
         "max_tokens": max_tokens,
@@ -119,6 +120,9 @@ def _stream_claude(model_id, prompt, system, max_tokens, thinking):
     }
     if system:
         kwargs["system"] = system
+    # temperature is deliberately not sent: the Anthropic SDK in use
+    # (anthropic==1.11.0) doesn't accept it for this model, so Claude always
+    # runs at its default. The temperature argument is ignored for Claude.
     if thinking:
         # display defaults to omitted (empty thinking text); summarized returns
         # Claude's summary of its thinking so it isn't lost.
@@ -159,11 +163,13 @@ def _stream_claude(model_id, prompt, system, max_tokens, thinking):
     return "".join(text_parts), "".join(reasoning_parts), start, first_token_at, output_tokens, input_tokens
 
 
-def call(model_name, prompt, system=None, max_tokens=1000, thinking=False):
+def call(model_name, prompt, system=None, max_tokens=1000, thinking=False, temperature=None):
     """Send a prompt to a model and return its reply with timing metrics.
 
     model_name is one of "qwen-small", "qwen-large" or "claude". thinking
-    turns on the model's reasoning step (off by default).
+    turns on the model's reasoning step (off by default). temperature sets
+    how random the output is (0 = most predictable); None uses the
+    provider's default.
 
     Returns a dict with text, reasoning, model_id, ttft_seconds,
     total_seconds, input_tokens, output_tokens and tokens_per_second.
@@ -181,7 +187,7 @@ def call(model_name, prompt, system=None, max_tokens=1000, thinking=False):
 
     stream_fn = _stream_claude if model_name == "claude" else _stream_qwen
     text, reasoning, start, first_token_at, output_tokens, input_tokens = stream_fn(
-        model_id, prompt, system, max_tokens, thinking
+        model_id, prompt, system, max_tokens, thinking, temperature
     )
     end = time.perf_counter()
 
