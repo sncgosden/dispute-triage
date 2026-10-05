@@ -71,6 +71,7 @@ def _stream_qwen(model_id, prompt, system, max_tokens, thinking):
     text_parts = []
     reasoning_parts = []
     output_tokens = None
+    input_tokens = None
 
     try:
         stream = _openai_client().chat.completions.create(
@@ -83,6 +84,7 @@ def _stream_qwen(model_id, prompt, system, max_tokens, thinking):
         for chunk in stream:
             if chunk.usage is not None:
                 output_tokens = chunk.usage.completion_tokens
+                input_tokens = chunk.usage.prompt_tokens
             if not chunk.choices:
                 continue
             delta = chunk.choices[0].delta
@@ -106,7 +108,7 @@ def _stream_qwen(model_id, prompt, system, max_tokens, thinking):
             f"Is the model loaded? ({e.message})"
         ) from e
 
-    return "".join(text_parts), "".join(reasoning_parts), start, first_token_at, output_tokens
+    return "".join(text_parts), "".join(reasoning_parts), start, first_token_at, output_tokens, input_tokens
 
 
 def _stream_claude(model_id, prompt, system, max_tokens, thinking):
@@ -153,7 +155,8 @@ def _stream_claude(model_id, prompt, system, max_tokens, thinking):
         ) from e
 
     output_tokens = final.usage.output_tokens if final.usage else None
-    return "".join(text_parts), "".join(reasoning_parts), start, first_token_at, output_tokens
+    input_tokens = final.usage.input_tokens if final.usage else None
+    return "".join(text_parts), "".join(reasoning_parts), start, first_token_at, output_tokens, input_tokens
 
 
 def call(model_name, prompt, system=None, max_tokens=1000, thinking=False):
@@ -163,7 +166,8 @@ def call(model_name, prompt, system=None, max_tokens=1000, thinking=False):
     turns on the model's reasoning step (off by default).
 
     Returns a dict with text, reasoning, model_id, ttft_seconds,
-    total_seconds, output_tokens and tokens_per_second. reasoning holds any
+    total_seconds, input_tokens, output_tokens and tokens_per_second.
+    input_tokens (prompt size) is needed to calculate API cost. reasoning holds any
     thinking the model streamed (for Claude, a summary of it), or "" if none.
     ttft_seconds measures the first token of either kind. tokens_per_second
     is the generation rate after the first token (output_tokens /
@@ -176,7 +180,7 @@ def call(model_name, prompt, system=None, max_tokens=1000, thinking=False):
     model_id = _require_env(MODEL_ENV_VARS[model_name])
 
     stream_fn = _stream_claude if model_name == "claude" else _stream_qwen
-    text, reasoning, start, first_token_at, output_tokens = stream_fn(
+    text, reasoning, start, first_token_at, output_tokens, input_tokens = stream_fn(
         model_id, prompt, system, max_tokens, thinking
     )
     end = time.perf_counter()
@@ -196,6 +200,7 @@ def call(model_name, prompt, system=None, max_tokens=1000, thinking=False):
         "model_id": model_id,
         "ttft_seconds": ttft,
         "total_seconds": total,
+        "input_tokens": input_tokens,
         "output_tokens": output_tokens,
         "tokens_per_second": tokens_per_second,
     }
