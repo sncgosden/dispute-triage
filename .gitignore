@@ -5,3 +5,6 @@ __pycache__/
 .env
 
 ~$*
+
+# Generated embedding index (rebuilt automatically from rules/dispute_rules.md)
+rules/rules_index.json
