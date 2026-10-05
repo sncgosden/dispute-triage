@@ -1,6 +1,6 @@
 # Dispute rules for small merchants
 
-This is the knowledge base the triage model retrieves from. Each `##` section is one retrieval chunk and is written to make sense on its own. Section IDs (R0–R7) are what the model cites in its explanation. Evidence is listed using the same IDs as the eval set (`docs/case_schema.md`).
+This is the knowledge base the triage model retrieves from. Each `##` section is one retrieval chunk and is written to make sense on its own. R0 is general context: it is always given to the model and is not ranked by retrieval. The "Customers often write" lines are generic paraphrases (not taken from eval cases) so rules match the way cardholders describe problems. Section IDs (R0–R7) are what the model cites in its explanation. Evidence is listed using the same IDs as the eval set (`docs/case_schema.md`).
 
 This is a plain-English summary of public Visa and Mastercard merchant guidance (sources in `docs/categories.md`), not scheme rule text. It's for a prototype, not operational advice.
 
@@ -17,6 +17,8 @@ A dispute (chargeback) starts when a cardholder asks their bank to reverse a car
 ## R1 · fraud_unauthorised: "I didn't make this purchase"
 
 **Applies when:** the cardholder says they didn't make or authorise the payment. They may not recognise the merchant, say their card was lost or stolen, or say someone else used it.
+
+**Customers often write:** "I don't recognise this payment", "I never bought this", "my card was lost or stolen", "someone has used my card", "I've never heard of this company", "my child bought this without asking".
 
 **Not this if:** they recognise the purchase but were charged the wrong amount or twice (R6), or they ordered something that didn't arrive (R2). "I don't recognise this" sometimes just means an unclear name on the statement.
 
@@ -35,7 +37,9 @@ A dispute (chargeback) starts when a cardholder asks their bank to reverse a car
 
 **Applies when:** goods never arrived, digital goods or tickets were never delivered, or a booked service never happened (no-show, event cancelled with nothing provided).
 
-**Not this if:** something arrived but was wrong, damaged or incomplete (R3). If the customer was charged but no order was ever created (e.g. "it said declined"), see R6.
+**Customers often write:** "it never came", "still waiting for my order", "nobody turned up", "the appointment never happened", "the tickets or code were never sent", "tracking hasn't moved", "they keep rescheduling".
+
+**Not this if:** something arrived but was wrong, damaged or incomplete (R3). Test: if the customer never received or used what they paid for, it's R2, even if the merchant changed the date or offered an alternative the customer didn't take. If the customer was charged but no order was ever created (e.g. "it said declined"), see R6.
 
 **Evidence that wins:**
 - `proof_of_delivery`: carrier confirmation of delivery or collection, ideally with a signature, photo or GPS location matching the cardholder's address.
@@ -50,7 +54,9 @@ A dispute (chargeback) starts when a cardholder asks their bank to reverse a car
 
 **Applies when:** goods or a service were provided but were defective, damaged, counterfeit, the wrong item, incomplete, poor quality, or materially different from the description or agreement. This includes a service done badly or only partly done.
 
-**Not this if:** nothing arrived at all (R2), or the customer has already returned the item or cancelled and is now waiting for a promised refund (R5).
+**Customers often write:** "it's broken / faulty / damaged", "it's fake", "not like the pictures", "wrong size, colour or item", "bits are missing", "they did a bad job", "the service was poor or only half done", "it isn't what we agreed".
+
+**Not this if:** nothing arrived at all, or the customer never used the service because it was cancelled or moved (R2), or the customer has already returned the item or cancelled and is now waiting for a promised refund (R5).
 
 **Evidence that wins:**
 - `product_listing`: the description, photos and specification exactly as shown at checkout.
@@ -64,6 +70,8 @@ A dispute (chargeback) starts when a cardholder asks their bank to reverse a car
 ## R4 · subscription_cancelled: "I cancelled but was charged again"
 
 **Applies when:** a recurring payment (subscription, membership, rental, regular plan) was taken after the cardholder says they cancelled or ended the agreement.
+
+**Customers often write:** "I cancelled my subscription but they're still charging me", "they took another monthly payment", "my free trial turned into a payment", "I ended the contract but they kept billing".
 
 **Not this if:** it was a one-off purchase or booking that was cancelled (R5), or a second one-off charge the customer doesn't recognise (R6 or R1).
 
@@ -79,6 +87,8 @@ A dispute (chargeback) starts when a cardholder asks their bank to reverse a car
 ## R5 · refund_not_processed: "I returned it or cancelled, and no refund came"
 
 **Applies when:** the customer returned goods, cancelled an order or booking, or was promised a refund (full or partial), and the money hasn't arrived.
+
+**Customers often write:** "I sent it back and haven't had my money", "they promised a refund", "I cancelled and want my money back", "refund still pending", "still waiting for my deposit".
 
 **Not this if:** the complaint is about the item itself and nothing was returned or cancelled (R3), or it's about a recurring charge after cancelling (R4).
 
@@ -100,6 +110,8 @@ A dispute (chargeback) starts when a cardholder asks their bank to reverse a car
 - a charge submitted very late (weeks or months after the purchase)
 - the customer already paid another way (cash, voucher, insurer)
 - the card was "declined" or "payment failed", but money was taken anyway
+
+**Customers often write:** "I've been charged twice", "the amount is wrong", "more than my receipt", "charged in the wrong currency", "I paid another way", "it said declined but the money still left my account", "this charge turned up months later".
 
 **Not this if:** the customer denies making any purchase (R1), or the amount is right but they're unhappy with what they got (R3).
 

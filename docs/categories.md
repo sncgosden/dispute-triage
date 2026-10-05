@@ -35,6 +35,7 @@
 - **Signals:** "never arrived", "no tracking", "service never happened", "event cancelled".
 - **Key evidence:** Carrier proof of delivery or collection (signature, GPS, photo); the expected delivery date if the order is still in transit; for digital goods, download/access logs; for services, proof the service was provided.
 - **Watch for:** "It arrived broken" is `not_as_described`, not this category.
+- **Received-or-used test:** if the customer never received or used what they paid for, it's `not_received`, even when the merchant moved the date or offered an alternative they didn't take. If they received or used it and it was poor, it's `not_as_described`.
 
 ### 3. `not_as_described`
 - **Definition:** Something was delivered, but it was defective, damaged, counterfeit, or materially different from what was described or agreed.
@@ -63,7 +64,17 @@
 ### `unclear` (fallback)
 - **Use when:** Confidence is below threshold, the narrative is too short, or two categories are equally plausible (e.g. "arrived damaged and they won't refund me").
 - **Action:** Route to human review with the top two candidate categories.
-- **Scoring:** a system output of `unclear` counts as "sent to review", not as right or wrong. Only 1 of the 80 eval cases has `unclear` as its gold label, because most cases the generator wrote as unclear could be resolved on careful reading.
+- **Scoring:** a system output of `unclear` counts as "sent to review", not as right or wrong. None of the 80 eval cases has `unclear` as its gold label: every case the generator wrote as unclear could be resolved on careful reading. The last one (C010, a late charge) was relabelled `processing_error` after the merge below.
+
+## Labelling rules log
+
+Rules decided while labelling or testing, so labels, prompts and reviewers apply them the same way:
+
+| Date | Rule | Why | Cases changed |
+|---|---|---|---|
+| 5 Oct 2026 | `authorisation_issue` merged into `processing_error` | Not distinguishable from the cardholder's own words | 0 gold labels existed |
+| 5 Oct 2026 | A charge taken weeks or months late is `processing_error` | Follows from the merge (Visa 11.3, Mastercard 4842) | C010 (was `unclear`) |
+| 5 Oct 2026 | Received-or-used test: not received or used = `not_received`; received but poor = `not_as_described` | Smoke test exposed moved or cancelled events as ambiguous; matches Visa 13.1 and gives a yes/no test | C006, C046 (were `not_as_described`) |
 
 ## Confusion pairs to test in the eval set
 

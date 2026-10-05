@@ -58,7 +58,7 @@ You are given one dispute and some rule sections. Classify what the cardholder i
 
 Categories (classify the cardholder's claim, not whether it is true):
 - fraud_unauthorised: denies making or authorising the payment.
-- not_received: paid, but goods, tickets or a booked service never arrived or never happened.
+- not_received: paid, but goods, tickets or a booked service never arrived or never happened, including when the merchant moved or cancelled it and the customer didn't use the alternative.
 - not_as_described: something was provided but was faulty, fake, wrong, incomplete, poor quality or different from what was promised.
 - subscription_cancelled: a recurring payment taken after they cancelled or ended the agreement.
 - refund_not_processed: they returned goods or cancelled a one-off order or booking, and an expected refund hasn't arrived.
@@ -70,7 +70,7 @@ Evidence: choose 2 to 4 of these IDs, most important first. Use only these exact
 
 Confidence: your probability (0 to 1) that the category is correct. Be honest: use below 0.7 when the complaint could reasonably fit another category.
 
-Explanation: 1 to 3 plain-English sentences for the merchant. Cite the rule sections you relied on by ID in square brackets, e.g. [R2].
+Explanation: at most 3 short plain-English sentences (under 60 words) for the merchant. Cite the rule sections you relied on by ID in square brackets, e.g. [R2].
 
 Reply with ONLY a JSON object, no other text, in exactly this shape:
 {{"category": "<one category>", "confidence": <number>, "second_category": "<next most likely category>", "second_confidence": <number>, "required_evidence": ["<id>", "..."], "explanation": "<text>"}}"""
@@ -132,7 +132,7 @@ def review_reasons(data, sections):
     return reasons
 
 
-def triage(case, model_name, k=3, max_tokens=600):
+def triage(case, model_name, k=3, max_tokens=1000):
     """Run the full pipeline on one case and return a flat result dict."""
     t0 = time.perf_counter()
     sections = retrieve(case["dispute_text"], k=k)
@@ -141,6 +141,8 @@ def triage(case, model_name, k=3, max_tokens=600):
     prompt = build_prompt(case, sections)
     calls = [call(model_name, prompt, system=SYSTEM_PROMPT, max_tokens=max_tokens)]
     data, errors = parse_reply(calls[0]["text"])
+    if calls[0]["output_tokens"] is not None and calls[0]["output_tokens"] >= max_tokens:
+        data, errors = None, ["reply was cut off because it was too long; keep the explanation under 60 words"]
     first_errors = errors
     if data is None:
         # One retry: show the model its reply and what was wrong with it.
@@ -151,6 +153,8 @@ def triage(case, model_name, k=3, max_tokens=600):
         )
         calls.append(call(model_name, retry_prompt, system=SYSTEM_PROMPT, max_tokens=max_tokens))
         data, errors = parse_reply(calls[1]["text"])
+        if calls[1]["output_tokens"] is not None and calls[1]["output_tokens"] >= max_tokens:
+            data, errors = None, ["reply was cut off again"]
 
     evidence, invalid, cited = [], [], []
     if data:
@@ -184,6 +188,7 @@ def triage(case, model_name, k=3, max_tokens=600):
         "valid_json": data is not None,
         "first_try_valid": not first_errors,
         "errors": errors,
+        "first_try_errors": first_errors,
         "retrieval_seconds": round(retrieval_seconds, 3),
         "ttft_seconds": calls[0]["ttft_seconds"],
         "llm_seconds": total("total_seconds"),
@@ -192,6 +197,7 @@ def triage(case, model_name, k=3, max_tokens=600):
         "output_tokens": total("output_tokens"),
         "tokens_per_second": calls[-1]["tokens_per_second"],
         "raw_reply": calls[-1]["text"],
+        "first_raw_reply": calls[0]["text"] if len(calls) > 1 else None,
     }
 
 
