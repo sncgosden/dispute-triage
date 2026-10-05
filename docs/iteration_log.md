@@ -53,3 +53,29 @@ Other notes: flagged cases were slower (6–11s), because the model writes more 
 - How do the 4B and 9B compare on ambiguous cases and on calibration? Is their confidence as useful as Claude's?
 - How many local-model errors line up with retrieval misses?
 - Next: a prompt fix for multi-claim complaints, and routing (4B when confident, otherwise 9B or Claude).
+---
+
+## Three-model comparison and failure analysis
+
+**Runner and settings.** Added resume, run settings files and per-case timestamps. Temperature fixed at 0 for Qwen. Claude's temperature can't be set with the SDK in use, so it runs at its default (an asymmetry, documented in `results/run_config.md`). No batching or pauses.
+
+**Results** (`results/comparison_v1.md`):
+
+| | Claude | Qwen 4B | Qwen 9B |
+|---|---|---|---|
+| Accuracy (easy / ambiguous) | 95% (100 / 83) | 94% (100 / 78) | 92% (98 / 79) |
+| Evidence recall | 80% | 75% | 70% |
+| Confident-but-wrong @0.70 | 0% | 6% | 8% |
+| Safe threshold range | 0.51–0.87 | none | 0.86–0.95 |
+| Latency median / p90 | 2.5 / 6.3s | 4.5 / 7.1s | 11.7 / 17.4s |
+| Cost per 1,000 | $8.57 | £0 | £0 |
+
+**Key finding: confidence calibration, not accuracy, separates the models.** All three are at 92–95% accuracy. But the Qwen models never report confidence below 0.85, so a 0.70 review threshold never triggers and their errors go unreviewed. The 9B's confidence still carries signal on a compressed scale (safe at 0.86–0.95); the 4B's doesn't (no safe threshold). **One shared threshold is wrong; thresholds must be calibrated per model.**
+
+**Bigger wasn't better.** The 9B was slightly less accurate than the 4B, with weaker evidence and 2.6× the latency. Its only advantage is usable confidence.
+
+**Operational note.** LM Studio crashed partway through the 9B run (connection lost after 24 cases); the run resumed after a restart. The 9B's latency spans both periods.
+
+**Failure analysis:** `docs/failure_analysis_v1.md`. 16 errors across 9 cases, in four types: multi-claim with no priority rule (8), recurring vs one-off (4), unrecognised charge from a known merchant (2), misreading (2). In 4 of 9 cases the models agree with each other against my label. A sensitivity check shows that relabelling those under existing principles would put Claude at 100%, but every relabel moves towards Claude's answer, so I'm keeping the original labels as the baseline and reporting the sensitivity. Retrieval misses explain only 4 of 16 errors.
+
+**Hypotheses for v2:** H1, a claim-priority rule for multi-claim complaints; H2, a recurring-charge signal.
