@@ -97,7 +97,7 @@ def main():
     out = []
     w = out.append
     w("# Model comparison\n")
-    w(f"Same 80 cases, prompt, retrieval and scorer for every run. Claude priced at ${args.price_in}/${args.price_out} per M tokens.\n")
+    w(f"Same 80 cases, retrieval and scorer for every run (the prompt version is in each run name). Claude priced at ${args.price_in}/${args.price_out} per M tokens.\n")
 
     w("## Quality, safety, speed and cost\n")
     w("| Metric | " + " | ".join(r["name"] for r in runs) + " | Target |")

@@ -79,3 +79,22 @@ Other notes: flagged cases were slower (6–11s), because the model writes more 
 **Failure analysis:** `docs/failure_analysis_v1.md`. 16 errors across 9 cases, in four types: multi-claim with no priority rule (8), recurring vs one-off (4), unrecognised charge from a known merchant (2), misreading (2). In 4 of 9 cases the models agree with each other against my label. A sensitivity check shows that relabelling those under existing principles would put Claude at 100%, but every relabel moves towards Claude's answer, so I'm keeping the original labels as the baseline and reporting the sensitivity. Retrieval misses explain only 4 of 16 errors.
 
 **Hypotheses for v2:** H1, a claim-priority rule for multi-claim complaints; H2, a recurring-charge signal.
+
+---
+
+## v2 changes: prompt and routing
+
+**Labels first, then the prompt.** I wrote rules H1 (claim priority) and H2 (recurring signal) into `docs/categories.md`, then scanned all 80 cases for conflicts. Three labels changed: C065 → refund (H1), C030 → subscription (H2), C016 → not_as_described (it failed the received-or-used test; this goes *against* Claude's answer). C055 was left alone because no new rule covers it. v1 was rescored on the corrected labels (Claude 98%, 4B 95%, 9B 96%); the original-label table is kept.
+
+**Change 1, prompt v2:** H1, H2, the received-or-used test, calibration guidance and three invented worked examples. Run on both Qwen models.
+- **4B: better.** 96% accuracy, ambiguous 88%, confident-but-wrong 3.8% (passes), safe range 0.50–0.90.
+- **9B: worse.** 89% accuracy, ambiguous 75%, confident-but-wrong 9.2%. It over-applied the new rules (C046 coach cancelled → refund; C050 paid by insurer → refund; C053 late charge → subscription). Exactly the risk noted for H1.
+- **Calibration guidance didn't work**, and evidence recall fell for both models.
+- **Lesson:** the same prompt change helped one model and hurt another. Test every change on every candidate model. I'm keeping the 9B on v1.
+
+**Change 2, routing** (simulated offline from saved outputs; `results/routing_v2.md`):
+- 4B, to Claude below 0.90 confidence: 94%. **Worse** than the 4B alone, because escalation sent some correct answers to Claude, which got them wrong.
+- 4B, to Claude below 0.95: 96%, confident-but-wrong 1.4%, 31% to Claude, $3.03 per 1,000.
+- **4B and 9B agree, else Claude: 98% (= Claude), 2% to Claude, $0.29 per 1,000.** Agreement is a far better signal than confidence. Caveats: shared blind spots (C048 and C056 slip through because both models are wrong the same way), only 2 escalations on 80 cases, about 18s latency, and evidence recall unchanged at 69%.
+
+**Still unsolved:** evidence recall. Every local-first route is at 69–76% against an 80% target.

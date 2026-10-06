@@ -1,6 +1,6 @@
 # Model comparison
 
-Same 80 cases, prompt, retrieval and scorer for every run. Claude priced at $2.0/$10.0 per M tokens.
+Same 80 cases, retrieval and scorer for every run (the prompt version is in each run name). Claude priced at $2.0/$10.0 per M tokens.
 
 ## Quality, safety, speed and cost
 
