@@ -1,6 +1,6 @@
 # PRD: Dispute-triage assistant for small merchants
 
-**Status:** v1.1 (targets confirmed after the baseline run) · **Owner:** project author · **Date:** 5 Oct 2026 · Prototype using synthetic data and public card-scheme guidance only.
+**Status:** v1.1 (targets confirmed after the baseline run) · **Owned by:** Sebastian · **Date:** 5 Oct 2026 · Prototype using synthetic data and public card-scheme guidance only.
 
 ## User
 The owner or operations lead at a small online merchant: a few staff, no payments or risk team, and disputes handled between other jobs. They see a few chargebacks a month, through their payment provider's dashboard.
