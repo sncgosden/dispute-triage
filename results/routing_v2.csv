@@ -1,0 +1,561 @@
+strategy,id,answered_by,pred,gold,correct,confidence,review,evidence_recall,seconds,cost
+All qwen4b_v2 (local only),C001,small,subscription_cancelled,subscription_cancelled,True,0.95,False,0.6666666666666666,4.777,0.0
+All qwen4b_v2 (local only),C002,small,processing_error,processing_error,True,0.9,False,1.0,4.394,0.0
+All qwen4b_v2 (local only),C003,small,not_received,not_received,True,0.95,False,1.0,4.429,0.0
+All qwen4b_v2 (local only),C004,small,fraud_unauthorised,fraud_unauthorised,True,0.95,False,0.6666666666666666,4.615,0.0
+All qwen4b_v2 (local only),C005,small,refund_not_processed,refund_not_processed,True,0.95,False,0.5,4.029,0.0
+All qwen4b_v2 (local only),C006,small,not_received,not_received,True,0.85,False,0.6666666666666666,4.717,0.0
+All qwen4b_v2 (local only),C007,small,not_as_described,not_as_described,True,0.95,False,1.0,4.548,0.0
+All qwen4b_v2 (local only),C008,small,subscription_cancelled,subscription_cancelled,True,0.95,False,0.6666666666666666,4.156,0.0
+All qwen4b_v2 (local only),C009,small,not_as_described,not_as_described,True,0.95,False,0.6666666666666666,4.939,0.0
+All qwen4b_v2 (local only),C010,small,processing_error,processing_error,True,0.9,False,0.3333333333333333,2.952,0.0
+All qwen4b_v2 (local only),C011,small,refund_not_processed,refund_not_processed,True,0.95,False,1.0,4.336,0.0
+All qwen4b_v2 (local only),C012,small,fraud_unauthorised,fraud_unauthorised,True,0.95,False,0.6666666666666666,2.529,0.0
+All qwen4b_v2 (local only),C013,small,not_as_described,not_as_described,True,0.95,False,0.6666666666666666,5.12,0.0
+All qwen4b_v2 (local only),C014,small,not_received,not_received,True,0.95,False,1.0,4.87,0.0
+All qwen4b_v2 (local only),C015,small,processing_error,processing_error,True,0.95,False,1.0,2.822,0.0
+All qwen4b_v2 (local only),C016,small,not_as_described,not_as_described,True,0.85,False,0.6666666666666666,5.07,0.0
+All qwen4b_v2 (local only),C017,small,processing_error,processing_error,True,0.95,False,1.0,4.316,0.0
+All qwen4b_v2 (local only),C018,small,refund_not_processed,refund_not_processed,True,0.95,False,1.0,4.978,0.0
+All qwen4b_v2 (local only),C019,small,fraud_unauthorised,fraud_unauthorised,True,0.95,False,0.5,5.522,0.0
+All qwen4b_v2 (local only),C020,small,not_as_described,not_as_described,True,0.95,False,0.0,6.737,0.0
+All qwen4b_v2 (local only),C021,small,subscription_cancelled,subscription_cancelled,True,0.95,False,1.0,6.661,0.0
+All qwen4b_v2 (local only),C022,small,fraud_unauthorised,fraud_unauthorised,True,0.95,False,0.5,4.262,0.0
+All qwen4b_v2 (local only),C023,small,not_received,not_received,True,0.95,False,1.0,7.663,0.0
+All qwen4b_v2 (local only),C024,small,not_as_described,not_as_described,True,0.95,False,1.0,6.621,0.0
+All qwen4b_v2 (local only),C025,small,processing_error,processing_error,True,0.95,False,1.0,6.543,0.0
+All qwen4b_v2 (local only),C026,small,refund_not_processed,refund_not_processed,True,0.95,False,0.5,7.345,0.0
+All qwen4b_v2 (local only),C027,small,subscription_cancelled,subscription_cancelled,True,0.9,False,1.0,7.754,0.0
+All qwen4b_v2 (local only),C028,small,processing_error,processing_error,True,0.85,False,0.5,4.737,0.0
+All qwen4b_v2 (local only),C029,small,not_as_described,not_as_described,True,0.95,False,0.0,8.082,0.0
+All qwen4b_v2 (local only),C030,small,subscription_cancelled,subscription_cancelled,True,0.95,False,0.6666666666666666,7.781,0.0
+All qwen4b_v2 (local only),C031,small,fraud_unauthorised,fraud_unauthorised,True,0.95,False,1.0,5.296,0.0
+All qwen4b_v2 (local only),C032,small,not_as_described,not_as_described,True,0.95,False,1.0,8.156,0.0
+All qwen4b_v2 (local only),C033,small,processing_error,processing_error,True,0.9,False,1.0,14.3,0.0
+All qwen4b_v2 (local only),C034,small,refund_not_processed,refund_not_processed,True,0.95,False,1.0,7.412,0.0
+All qwen4b_v2 (local only),C035,small,not_as_described,not_as_described,True,0.9,False,1.0,4.499,0.0
+All qwen4b_v2 (local only),C036,small,processing_error,processing_error,True,0.95,False,1.0,4.515,0.0
+All qwen4b_v2 (local only),C037,small,not_received,not_received,True,0.95,False,0.5,3.891,0.0
+All qwen4b_v2 (local only),C038,small,not_as_described,not_as_described,True,0.95,False,0.0,4.835,0.0
+All qwen4b_v2 (local only),C039,small,refund_not_processed,refund_not_processed,True,0.95,False,1.0,8.399,0.0
+All qwen4b_v2 (local only),C040,small,fraud_unauthorised,fraud_unauthorised,True,0.95,False,1.0,5.114,0.0
+All qwen4b_v2 (local only),C041,small,subscription_cancelled,subscription_cancelled,True,0.95,False,0.5,6.481,0.0
+All qwen4b_v2 (local only),C042,small,processing_error,processing_error,True,0.95,False,1.0,4.399,0.0
+All qwen4b_v2 (local only),C043,small,not_received,not_received,True,0.95,False,1.0,7.516,0.0
+All qwen4b_v2 (local only),C044,small,not_as_described,refund_not_processed,False,0.9,False,0.5,7.301,0.0
+All qwen4b_v2 (local only),C045,small,fraud_unauthorised,fraud_unauthorised,True,0.9,False,0.5,5.318,0.0
+All qwen4b_v2 (local only),C046,small,not_received,not_received,True,0.9,False,0.0,6.572,0.0
+All qwen4b_v2 (local only),C047,small,not_as_described,not_as_described,True,0.95,False,1.0,3.996,0.0
+All qwen4b_v2 (local only),C048,small,subscription_cancelled,refund_not_processed,False,0.95,False,0.5,7.0,0.0
+All qwen4b_v2 (local only),C049,small,processing_error,processing_error,True,0.95,False,1.0,4.258,0.0
+All qwen4b_v2 (local only),C050,small,processing_error,processing_error,True,0.95,False,1.0,8.457,0.0
+All qwen4b_v2 (local only),C051,small,not_as_described,not_as_described,True,0.95,False,0.6666666666666666,5.341,0.0
+All qwen4b_v2 (local only),C052,small,refund_not_processed,refund_not_processed,True,0.9,False,0.5,6.823,0.0
+All qwen4b_v2 (local only),C053,small,processing_error,processing_error,True,0.9,False,0.0,4.367,0.0
+All qwen4b_v2 (local only),C054,small,not_received,not_received,True,0.95,False,1.0,5.321,0.0
+All qwen4b_v2 (local only),C055,small,processing_error,processing_error,True,0.85,False,0.3333333333333333,13.999,0.0
+All qwen4b_v2 (local only),C056,small,subscription_cancelled,not_as_described,False,0.9,False,0.0,6.78,0.0
+All qwen4b_v2 (local only),C057,small,not_as_described,not_as_described,True,0.95,False,0.3333333333333333,8.261,0.0
+All qwen4b_v2 (local only),C058,small,not_received,not_received,True,0.95,False,0.5,4.832,0.0
+All qwen4b_v2 (local only),C059,small,fraud_unauthorised,fraud_unauthorised,True,0.95,False,0.5,4.762,0.0
+All qwen4b_v2 (local only),C060,small,refund_not_processed,refund_not_processed,True,0.9,False,0.5,8.157,0.0
+All qwen4b_v2 (local only),C061,small,subscription_cancelled,subscription_cancelled,True,0.95,False,0.5,3.937,0.0
+All qwen4b_v2 (local only),C062,small,processing_error,processing_error,True,0.95,False,1.0,8.524,0.0
+All qwen4b_v2 (local only),C063,small,fraud_unauthorised,fraud_unauthorised,True,0.85,False,0.3333333333333333,5.257,0.0
+All qwen4b_v2 (local only),C064,small,not_received,not_received,True,0.95,False,0.5,3.335,0.0
+All qwen4b_v2 (local only),C065,small,refund_not_processed,refund_not_processed,True,0.85,False,0.6666666666666666,6.856,0.0
+All qwen4b_v2 (local only),C066,small,refund_not_processed,refund_not_processed,True,0.9,False,0.6666666666666666,6.293,0.0
+All qwen4b_v2 (local only),C067,small,refund_not_processed,refund_not_processed,True,0.85,False,1.0,6.98,0.0
+All qwen4b_v2 (local only),C068,small,processing_error,processing_error,True,0.85,False,0.5,3.504,0.0
+All qwen4b_v2 (local only),C069,small,fraud_unauthorised,fraud_unauthorised,True,0.95,False,1.0,4.936,0.0
+All qwen4b_v2 (local only),C070,small,not_as_described,not_as_described,True,0.95,False,1.0,7.047,0.0
+All qwen4b_v2 (local only),C071,small,not_as_described,not_as_described,True,0.95,False,0.5,4.112,0.0
+All qwen4b_v2 (local only),C072,small,refund_not_processed,refund_not_processed,True,0.85,False,0.5,10.739,0.0
+All qwen4b_v2 (local only),C073,small,processing_error,processing_error,True,0.95,False,0.5,3.54,0.0
+All qwen4b_v2 (local only),C074,small,subscription_cancelled,subscription_cancelled,True,0.95,False,0.6666666666666666,6.579,0.0
+All qwen4b_v2 (local only),C075,small,not_received,not_received,True,0.9,False,1.0,4.12,0.0
+All qwen4b_v2 (local only),C076,small,processing_error,processing_error,True,0.9,False,0.5,4.174,0.0
+All qwen4b_v2 (local only),C077,small,processing_error,processing_error,True,0.85,False,1.0,10.984,0.0
+All qwen4b_v2 (local only),C078,small,not_as_described,not_as_described,True,0.95,False,1.0,6.222,0.0
+All qwen4b_v2 (local only),C079,small,refund_not_processed,refund_not_processed,True,0.95,False,0.3333333333333333,6.497,0.0
+All qwen4b_v2 (local only),C080,small,fraud_unauthorised,fraud_unauthorised,True,0.95,False,0.5,7.4,0.0
+All qwen9b_v1 (local only),C001,large,subscription_cancelled,subscription_cancelled,True,0.95,False,0.6666666666666666,6.137,0.0
+All qwen9b_v1 (local only),C002,large,processing_error,processing_error,True,0.95,False,1.0,6.406,0.0
+All qwen9b_v1 (local only),C003,large,not_received,not_received,True,0.95,False,0.5,6.34,0.0
+All qwen9b_v1 (local only),C004,large,fraud_unauthorised,fraud_unauthorised,True,0.95,False,0.6666666666666666,10.392,0.0
+All qwen9b_v1 (local only),C005,large,refund_not_processed,refund_not_processed,True,0.95,False,1.0,31.76,0.0
+All qwen9b_v1 (local only),C006,large,not_received,not_received,True,0.85,False,0.6666666666666666,18.049,0.0
+All qwen9b_v1 (local only),C007,large,not_as_described,not_as_described,True,0.95,False,1.0,21.322,0.0
+All qwen9b_v1 (local only),C008,large,subscription_cancelled,subscription_cancelled,True,0.95,False,0.6666666666666666,12.674,0.0
+All qwen9b_v1 (local only),C009,large,not_as_described,not_as_described,True,0.95,False,0.6666666666666666,17.45,0.0
+All qwen9b_v1 (local only),C010,large,processing_error,processing_error,True,0.95,False,0.6666666666666666,11.046,0.0
+All qwen9b_v1 (local only),C011,large,refund_not_processed,refund_not_processed,True,0.95,True,1.0,19.084,0.0
+All qwen9b_v1 (local only),C012,large,fraud_unauthorised,fraud_unauthorised,True,0.95,False,0.6666666666666666,16.105,0.0
+All qwen9b_v1 (local only),C013,large,not_as_described,not_as_described,True,0.95,False,1.0,18.314,0.0
+All qwen9b_v1 (local only),C014,large,not_received,not_received,True,0.95,False,1.0,16.349,0.0
+All qwen9b_v1 (local only),C015,large,processing_error,processing_error,True,0.95,False,0.5,10.293,0.0
+All qwen9b_v1 (local only),C016,large,not_as_described,not_as_described,True,0.85,False,0.6666666666666666,15.297,0.0
+All qwen9b_v1 (local only),C017,large,processing_error,processing_error,True,0.95,False,1.0,16.399,0.0
+All qwen9b_v1 (local only),C018,large,refund_not_processed,refund_not_processed,True,0.95,False,1.0,16.709,0.0
+All qwen9b_v1 (local only),C019,large,fraud_unauthorised,fraud_unauthorised,True,0.95,False,0.5,17.417,0.0
+All qwen9b_v1 (local only),C020,large,not_as_described,not_as_described,True,0.95,False,0.5,13.595,0.0
+All qwen9b_v1 (local only),C021,large,subscription_cancelled,subscription_cancelled,True,0.95,False,0.5,10.986,0.0
+All qwen9b_v1 (local only),C022,large,fraud_unauthorised,fraud_unauthorised,True,0.95,False,1.0,16.11,0.0
+All qwen9b_v1 (local only),C023,large,not_received,not_received,True,0.95,False,1.0,18.317,0.0
+All qwen9b_v1 (local only),C024,large,not_as_described,not_as_described,True,0.95,False,0.5,17.869,0.0
+All qwen9b_v1 (local only),C025,large,processing_error,processing_error,True,0.95,False,1.0,8.689,0.0
+All qwen9b_v1 (local only),C026,large,refund_not_processed,refund_not_processed,True,0.95,False,1.0,7.464,0.0
+All qwen9b_v1 (local only),C027,large,subscription_cancelled,subscription_cancelled,True,0.85,False,0.6666666666666666,8.735,0.0
+All qwen9b_v1 (local only),C028,large,processing_error,processing_error,True,0.95,False,0.5,8.274,0.0
+All qwen9b_v1 (local only),C029,large,not_as_described,not_as_described,True,0.95,False,0.0,8.831,0.0
+All qwen9b_v1 (local only),C030,large,subscription_cancelled,subscription_cancelled,True,0.85,False,0.6666666666666666,8.383,0.0
+All qwen9b_v1 (local only),C031,large,fraud_unauthorised,fraud_unauthorised,True,0.95,False,0.5,9.61,0.0
+All qwen9b_v1 (local only),C032,large,not_as_described,not_as_described,True,0.95,False,1.0,9.096,0.0
+All qwen9b_v1 (local only),C033,large,processing_error,processing_error,True,0.95,False,1.0,8.846,0.0
+All qwen9b_v1 (local only),C034,large,refund_not_processed,refund_not_processed,True,0.95,False,1.0,9.012,0.0
+All qwen9b_v1 (local only),C035,large,not_as_described,not_as_described,True,0.85,False,0.5,9.426,0.0
+All qwen9b_v1 (local only),C036,large,processing_error,processing_error,True,0.95,False,1.0,9.518,0.0
+All qwen9b_v1 (local only),C037,large,not_received,not_received,True,0.95,False,0.5,9.916,0.0
+All qwen9b_v1 (local only),C038,large,not_as_described,not_as_described,True,0.95,False,0.0,6.595,0.0
+All qwen9b_v1 (local only),C039,large,refund_not_processed,refund_not_processed,True,0.95,False,1.0,9.419,0.0
+All qwen9b_v1 (local only),C040,large,fraud_unauthorised,fraud_unauthorised,True,0.95,False,0.5,7.36,0.0
+All qwen9b_v1 (local only),C041,large,subscription_cancelled,subscription_cancelled,True,0.95,False,0.5,11.077,0.0
+All qwen9b_v1 (local only),C042,large,processing_error,processing_error,True,0.95,False,0.5,8.163,0.0
+All qwen9b_v1 (local only),C043,large,not_received,not_received,True,0.95,False,1.0,13.918,0.0
+All qwen9b_v1 (local only),C044,large,refund_not_processed,refund_not_processed,True,0.9,False,1.0,12.127,0.0
+All qwen9b_v1 (local only),C045,large,fraud_unauthorised,fraud_unauthorised,True,0.95,False,0.5,13.924,0.0
+All qwen9b_v1 (local only),C046,large,not_received,not_received,True,0.95,False,0.3333333333333333,14.178,0.0
+All qwen9b_v1 (local only),C047,large,refund_not_processed,not_as_described,False,0.85,False,1.0,13.796,0.0
+All qwen9b_v1 (local only),C048,large,subscription_cancelled,refund_not_processed,False,0.95,False,0.0,8.638,0.0
+All qwen9b_v1 (local only),C049,large,processing_error,processing_error,True,0.95,False,1.0,9.002,0.0
+All qwen9b_v1 (local only),C050,large,processing_error,processing_error,True,0.95,False,1.0,11.367,0.0
+All qwen9b_v1 (local only),C051,large,not_as_described,not_as_described,True,0.95,False,0.3333333333333333,9.674,0.0
+All qwen9b_v1 (local only),C052,large,refund_not_processed,refund_not_processed,True,0.95,False,1.0,9.972,0.0
+All qwen9b_v1 (local only),C053,large,processing_error,processing_error,True,0.95,False,0.0,8.842,0.0
+All qwen9b_v1 (local only),C054,large,not_received,not_received,True,0.95,False,1.0,8.965,0.0
+All qwen9b_v1 (local only),C055,large,processing_error,processing_error,True,0.95,False,0.3333333333333333,15.249,0.0
+All qwen9b_v1 (local only),C056,large,subscription_cancelled,not_as_described,False,0.85,False,0.0,13.241,0.0
+All qwen9b_v1 (local only),C057,large,not_as_described,not_as_described,True,0.9,False,0.6666666666666666,12.292,0.0
+All qwen9b_v1 (local only),C058,large,not_received,not_received,True,0.95,False,0.5,12.899,0.0
+All qwen9b_v1 (local only),C059,large,fraud_unauthorised,fraud_unauthorised,True,0.95,False,0.5,10.818,0.0
+All qwen9b_v1 (local only),C060,large,refund_not_processed,refund_not_processed,True,0.95,False,1.0,15.206,0.0
+All qwen9b_v1 (local only),C061,large,subscription_cancelled,subscription_cancelled,True,0.95,False,0.5,15.681,0.0
+All qwen9b_v1 (local only),C062,large,processing_error,processing_error,True,0.95,False,1.0,16.178,0.0
+All qwen9b_v1 (local only),C063,large,fraud_unauthorised,fraud_unauthorised,True,0.9,False,0.6666666666666666,12.503,0.0
+All qwen9b_v1 (local only),C064,large,not_received,not_received,True,0.95,False,1.0,14.296,0.0
+All qwen9b_v1 (local only),C065,large,refund_not_processed,refund_not_processed,True,0.95,False,0.6666666666666666,9.078,0.0
+All qwen9b_v1 (local only),C066,large,refund_not_processed,refund_not_processed,True,0.95,False,1.0,14.673,0.0
+All qwen9b_v1 (local only),C067,large,refund_not_processed,refund_not_processed,True,0.9,False,0.5,14.543,0.0
+All qwen9b_v1 (local only),C068,large,processing_error,processing_error,True,0.85,False,0.5,10.986,0.0
+All qwen9b_v1 (local only),C069,large,fraud_unauthorised,fraud_unauthorised,True,0.95,False,1.0,10.8,0.0
+All qwen9b_v1 (local only),C070,large,not_as_described,not_as_described,True,0.95,False,1.0,14.591,0.0
+All qwen9b_v1 (local only),C071,large,not_as_described,not_as_described,True,0.95,False,1.0,8.782,0.0
+All qwen9b_v1 (local only),C072,large,refund_not_processed,refund_not_processed,True,0.85,False,0.5,14.987,0.0
+All qwen9b_v1 (local only),C073,large,processing_error,processing_error,True,0.95,False,0.5,9.543,0.0
+All qwen9b_v1 (local only),C074,large,subscription_cancelled,subscription_cancelled,True,0.95,False,0.6666666666666666,14.414,0.0
+All qwen9b_v1 (local only),C075,large,not_received,not_received,True,0.95,False,1.0,9.317,0.0
+All qwen9b_v1 (local only),C076,large,processing_error,processing_error,True,0.95,False,1.0,15.343,0.0
+All qwen9b_v1 (local only),C077,large,processing_error,processing_error,True,0.85,False,1.0,15.298,0.0
+All qwen9b_v1 (local only),C078,large,not_as_described,not_as_described,True,0.95,False,1.0,14.422,0.0
+All qwen9b_v1 (local only),C079,large,refund_not_processed,refund_not_processed,True,0.95,False,0.0,10.336,0.0
+All qwen9b_v1 (local only),C080,large,fraud_unauthorised,fraud_unauthorised,True,0.95,False,0.5,14.929,0.0
+All Claude,C001,claude,subscription_cancelled,subscription_cancelled,True,0.95,False,0.6666666666666666,2.777,0.007254
+All Claude,C002,claude,processing_error,processing_error,True,0.93,False,1.0,2.771,0.007554
+All Claude,C003,claude,not_received,not_received,True,0.95,False,1.0,2.457,0.007638
+All Claude,C004,claude,fraud_unauthorised,fraud_unauthorised,True,0.93,False,1.0,2.124,0.00748
+All Claude,C005,claude,refund_not_processed,refund_not_processed,True,0.95,False,0.5,2.685,0.007368
+All Claude,C006,claude,not_received,not_received,True,0.62,True,1.0,2.227,0.007318
+All Claude,C007,claude,not_as_described,not_as_described,True,0.95,False,0.5,2.402,0.007586
+All Claude,C008,claude,subscription_cancelled,subscription_cancelled,True,0.95,False,0.6666666666666666,2.161,0.007546
+All Claude,C009,claude,not_as_described,not_as_described,True,0.8,False,1.0,2.048,0.00765
+All Claude,C010,claude,processing_error,processing_error,True,0.8,False,1.0,2.019,0.007464
+All Claude,C011,claude,refund_not_processed,refund_not_processed,True,0.93,False,0.5,2.555,0.007462
+All Claude,C012,claude,fraud_unauthorised,fraud_unauthorised,True,0.96,False,0.6666666666666666,2.272,0.00756
+All Claude,C013,claude,not_as_described,not_as_described,True,0.78,False,1.0,4.896,0.010868
+All Claude,C014,claude,not_received,not_received,True,0.93,False,1.0,2.047,0.007378
+All Claude,C015,claude,processing_error,processing_error,True,0.85,False,0.5,3.401,0.007432
+All Claude,C016,claude,refund_not_processed,not_as_described,False,0.55,True,0.6666666666666666,6.572,0.01322
+All Claude,C017,claude,processing_error,processing_error,True,0.8,False,1.0,2.11,0.007446
+All Claude,C018,claude,refund_not_processed,refund_not_processed,True,0.93,False,1.0,2.252,0.007212
+All Claude,C019,claude,fraud_unauthorised,fraud_unauthorised,True,0.95,False,1.0,2.356,0.007632
+All Claude,C020,claude,not_as_described,not_as_described,True,0.97,False,0.5,5.876,0.00776
+All Claude,C021,claude,subscription_cancelled,subscription_cancelled,True,0.93,False,0.5,2.046,0.007354
+All Claude,C022,claude,fraud_unauthorised,fraud_unauthorised,True,0.96,False,1.0,3.299,0.007618
+All Claude,C023,claude,not_received,not_received,True,0.9,False,1.0,2.075,0.007526
+All Claude,C024,claude,not_as_described,not_as_described,True,0.93,False,1.0,2.511,0.007588
+All Claude,C025,claude,processing_error,processing_error,True,0.96,False,1.0,4.784,0.007428
+All Claude,C026,claude,refund_not_processed,refund_not_processed,True,0.95,False,0.5,2.6,0.007256
+All Claude,C027,claude,subscription_cancelled,subscription_cancelled,True,0.62,True,0.6666666666666666,5.968,0.007424
+All Claude,C028,claude,processing_error,processing_error,True,0.93,False,1.0,2.436,0.007654
+All Claude,C029,claude,not_as_described,not_as_described,True,0.75,False,1.0,4.145,0.011274
+All Claude,C030,claude,subscription_cancelled,subscription_cancelled,True,0.5,True,1.0,6.245,0.013482
+All Claude,C031,claude,fraud_unauthorised,fraud_unauthorised,True,0.97,False,1.0,1.934,0.007574
+All Claude,C032,claude,not_as_described,not_as_described,True,0.96,False,1.0,2.045,0.007626
+All Claude,C033,claude,processing_error,processing_error,True,0.5,True,1.0,6.328,0.013152
+All Claude,C034,claude,refund_not_processed,refund_not_processed,True,0.93,False,1.0,2.383,0.00734
+All Claude,C035,claude,not_as_described,not_as_described,True,0.82,False,1.0,2.149,0.007768
+All Claude,C036,claude,processing_error,processing_error,True,0.9,False,1.0,2.357,0.00737
+All Claude,C037,claude,not_received,not_received,True,0.93,False,1.0,3.252,0.007612
+All Claude,C038,claude,not_as_described,not_as_described,True,0.96,False,0.5,2.175,0.00773
+All Claude,C039,claude,refund_not_processed,refund_not_processed,True,0.93,False,0.5,2.106,0.00743
+All Claude,C040,claude,fraud_unauthorised,fraud_unauthorised,True,0.96,False,1.0,4.731,0.007756
+All Claude,C041,claude,subscription_cancelled,subscription_cancelled,True,0.93,False,0.5,2.788,0.007486
+All Claude,C042,claude,processing_error,processing_error,True,0.9,False,1.0,2.456,0.007776
+All Claude,C043,claude,not_received,not_received,True,0.93,False,1.0,2.2,0.00762
+All Claude,C044,claude,refund_not_processed,refund_not_processed,True,0.72,False,0.5,4.011,0.015298
+All Claude,C045,claude,fraud_unauthorised,fraud_unauthorised,True,0.95,False,1.0,3.202,0.007636
+All Claude,C046,claude,not_received,not_received,True,0.8,False,0.6666666666666666,2.346,0.007344
+All Claude,C047,claude,not_as_described,not_as_described,True,0.93,False,1.0,2.333,0.007612
+All Claude,C048,claude,refund_not_processed,refund_not_processed,True,0.55,True,0.5,6.817,0.01341
+All Claude,C049,claude,processing_error,processing_error,True,0.93,False,1.0,2.049,0.007314
+All Claude,C050,claude,processing_error,processing_error,True,0.88,False,1.0,2.126,0.007512
+All Claude,C051,claude,not_as_described,not_as_described,True,0.87,False,0.6666666666666666,4.879,0.01031
+All Claude,C052,claude,refund_not_processed,refund_not_processed,True,0.9,False,1.0,2.05,0.007026
+All Claude,C053,claude,processing_error,processing_error,True,0.86,False,1.0,5.483,0.012084
+All Claude,C054,claude,not_received,not_received,True,0.95,False,1.0,3.193,0.007386
+All Claude,C055,claude,fraud_unauthorised,processing_error,False,0.62,True,0.0,7.952,0.013886
+All Claude,C056,claude,not_as_described,not_as_described,True,0.6,True,0.5,5.215,0.011294
+All Claude,C057,claude,not_as_described,not_as_described,True,0.93,False,0.6666666666666666,2.578,0.00731
+All Claude,C058,claude,not_received,not_received,True,0.95,False,1.0,2.098,0.007424
+All Claude,C059,claude,fraud_unauthorised,fraud_unauthorised,True,0.96,False,0.5,2.388,0.00783
+All Claude,C060,claude,refund_not_processed,refund_not_processed,True,0.93,False,0.5,2.05,0.007392
+All Claude,C061,claude,subscription_cancelled,subscription_cancelled,True,0.93,False,0.5,5.964,0.007618
+All Claude,C062,claude,processing_error,processing_error,True,0.95,False,1.0,2.24,0.007866
+All Claude,C063,claude,fraud_unauthorised,fraud_unauthorised,True,0.93,False,1.0,2.418,0.00762
+All Claude,C064,claude,not_received,not_received,True,0.94,False,1.0,4.854,0.011562
+All Claude,C065,claude,refund_not_processed,refund_not_processed,True,0.55,True,0.6666666666666666,7.741,0.01528
+All Claude,C066,claude,refund_not_processed,refund_not_processed,True,0.96,False,0.6666666666666666,2.037,0.007318
+All Claude,C067,claude,refund_not_processed,refund_not_processed,True,0.5,True,1.0,11.123,0.014816
+All Claude,C068,claude,processing_error,processing_error,True,0.93,False,1.0,2.225,0.00764
+All Claude,C069,claude,fraud_unauthorised,fraud_unauthorised,True,0.96,False,1.0,2.308,0.007486
+All Claude,C070,claude,not_as_described,not_as_described,True,0.8,False,1.0,2.706,0.007864
+All Claude,C071,claude,not_as_described,not_as_described,True,0.93,False,1.0,4.302,0.00756
+All Claude,C072,claude,refund_not_processed,refund_not_processed,True,0.78,False,0.5,7.884,0.01073
+All Claude,C073,claude,processing_error,processing_error,True,0.94,False,1.0,7.881,0.011918
+All Claude,C074,claude,subscription_cancelled,subscription_cancelled,True,0.96,False,0.6666666666666666,4.839,0.007414
+All Claude,C075,claude,not_received,not_received,True,0.9,False,1.0,2.13,0.007522
+All Claude,C076,claude,processing_error,processing_error,True,0.86,False,1.0,7.674,0.010376
+All Claude,C077,claude,processing_error,processing_error,True,0.55,True,1.0,2.746,0.007832
+All Claude,C078,claude,not_as_described,not_as_described,True,0.93,False,1.0,2.269,0.006794
+All Claude,C079,claude,refund_not_processed,refund_not_processed,True,0.95,False,0.3333333333333333,2.618,0.0073
+All Claude,C080,claude,fraud_unauthorised,fraud_unauthorised,True,0.93,False,1.0,4.869,0.007512
+qwen4b_v2; to Claude if confidence < 0.90,C001,small,subscription_cancelled,subscription_cancelled,True,0.95,False,0.6666666666666666,4.777,0.0
+qwen4b_v2; to Claude if confidence < 0.90,C002,small,processing_error,processing_error,True,0.9,False,1.0,4.394,0.0
+qwen4b_v2; to Claude if confidence < 0.90,C003,small,not_received,not_received,True,0.95,False,1.0,4.429,0.0
+qwen4b_v2; to Claude if confidence < 0.90,C004,small,fraud_unauthorised,fraud_unauthorised,True,0.95,False,0.6666666666666666,4.615,0.0
+qwen4b_v2; to Claude if confidence < 0.90,C005,small,refund_not_processed,refund_not_processed,True,0.95,False,0.5,4.029,0.0
+qwen4b_v2; to Claude if confidence < 0.90,C006,claude,not_received,not_received,True,0.62,True,1.0,6.943999999999999,0.007318
+qwen4b_v2; to Claude if confidence < 0.90,C007,small,not_as_described,not_as_described,True,0.95,False,1.0,4.548,0.0
+qwen4b_v2; to Claude if confidence < 0.90,C008,small,subscription_cancelled,subscription_cancelled,True,0.95,False,0.6666666666666666,4.156,0.0
+qwen4b_v2; to Claude if confidence < 0.90,C009,small,not_as_described,not_as_described,True,0.95,False,0.6666666666666666,4.939,0.0
+qwen4b_v2; to Claude if confidence < 0.90,C010,small,processing_error,processing_error,True,0.9,False,0.3333333333333333,2.952,0.0
+qwen4b_v2; to Claude if confidence < 0.90,C011,small,refund_not_processed,refund_not_processed,True,0.95,False,1.0,4.336,0.0
+qwen4b_v2; to Claude if confidence < 0.90,C012,small,fraud_unauthorised,fraud_unauthorised,True,0.95,False,0.6666666666666666,2.529,0.0
+qwen4b_v2; to Claude if confidence < 0.90,C013,small,not_as_described,not_as_described,True,0.95,False,0.6666666666666666,5.12,0.0
+qwen4b_v2; to Claude if confidence < 0.90,C014,small,not_received,not_received,True,0.95,False,1.0,4.87,0.0
+qwen4b_v2; to Claude if confidence < 0.90,C015,small,processing_error,processing_error,True,0.95,False,1.0,2.822,0.0
+qwen4b_v2; to Claude if confidence < 0.90,C016,claude,refund_not_processed,not_as_described,False,0.55,True,0.6666666666666666,11.642,0.01322
+qwen4b_v2; to Claude if confidence < 0.90,C017,small,processing_error,processing_error,True,0.95,False,1.0,4.316,0.0
+qwen4b_v2; to Claude if confidence < 0.90,C018,small,refund_not_processed,refund_not_processed,True,0.95,False,1.0,4.978,0.0
+qwen4b_v2; to Claude if confidence < 0.90,C019,small,fraud_unauthorised,fraud_unauthorised,True,0.95,False,0.5,5.522,0.0
+qwen4b_v2; to Claude if confidence < 0.90,C020,small,not_as_described,not_as_described,True,0.95,False,0.0,6.737,0.0
+qwen4b_v2; to Claude if confidence < 0.90,C021,small,subscription_cancelled,subscription_cancelled,True,0.95,False,1.0,6.661,0.0
+qwen4b_v2; to Claude if confidence < 0.90,C022,small,fraud_unauthorised,fraud_unauthorised,True,0.95,False,0.5,4.262,0.0
+qwen4b_v2; to Claude if confidence < 0.90,C023,small,not_received,not_received,True,0.95,False,1.0,7.663,0.0
+qwen4b_v2; to Claude if confidence < 0.90,C024,small,not_as_described,not_as_described,True,0.95,False,1.0,6.621,0.0
+qwen4b_v2; to Claude if confidence < 0.90,C025,small,processing_error,processing_error,True,0.95,False,1.0,6.543,0.0
+qwen4b_v2; to Claude if confidence < 0.90,C026,small,refund_not_processed,refund_not_processed,True,0.95,False,0.5,7.345,0.0
+qwen4b_v2; to Claude if confidence < 0.90,C027,small,subscription_cancelled,subscription_cancelled,True,0.9,False,1.0,7.754,0.0
+qwen4b_v2; to Claude if confidence < 0.90,C028,claude,processing_error,processing_error,True,0.93,False,1.0,7.173,0.007654
+qwen4b_v2; to Claude if confidence < 0.90,C029,small,not_as_described,not_as_described,True,0.95,False,0.0,8.082,0.0
+qwen4b_v2; to Claude if confidence < 0.90,C030,small,subscription_cancelled,subscription_cancelled,True,0.95,False,0.6666666666666666,7.781,0.0
+qwen4b_v2; to Claude if confidence < 0.90,C031,small,fraud_unauthorised,fraud_unauthorised,True,0.95,False,1.0,5.296,0.0
+qwen4b_v2; to Claude if confidence < 0.90,C032,small,not_as_described,not_as_described,True,0.95,False,1.0,8.156,0.0
+qwen4b_v2; to Claude if confidence < 0.90,C033,small,processing_error,processing_error,True,0.9,False,1.0,14.3,0.0
+qwen4b_v2; to Claude if confidence < 0.90,C034,small,refund_not_processed,refund_not_processed,True,0.95,False,1.0,7.412,0.0
+qwen4b_v2; to Claude if confidence < 0.90,C035,small,not_as_described,not_as_described,True,0.9,False,1.0,4.499,0.0
+qwen4b_v2; to Claude if confidence < 0.90,C036,small,processing_error,processing_error,True,0.95,False,1.0,4.515,0.0
+qwen4b_v2; to Claude if confidence < 0.90,C037,small,not_received,not_received,True,0.95,False,0.5,3.891,0.0
+qwen4b_v2; to Claude if confidence < 0.90,C038,small,not_as_described,not_as_described,True,0.95,False,0.0,4.835,0.0
+qwen4b_v2; to Claude if confidence < 0.90,C039,small,refund_not_processed,refund_not_processed,True,0.95,False,1.0,8.399,0.0
+qwen4b_v2; to Claude if confidence < 0.90,C040,small,fraud_unauthorised,fraud_unauthorised,True,0.95,False,1.0,5.114,0.0
+qwen4b_v2; to Claude if confidence < 0.90,C041,small,subscription_cancelled,subscription_cancelled,True,0.95,False,0.5,6.481,0.0
+qwen4b_v2; to Claude if confidence < 0.90,C042,small,processing_error,processing_error,True,0.95,False,1.0,4.399,0.0
+qwen4b_v2; to Claude if confidence < 0.90,C043,small,not_received,not_received,True,0.95,False,1.0,7.516,0.0
+qwen4b_v2; to Claude if confidence < 0.90,C044,small,not_as_described,refund_not_processed,False,0.9,False,0.5,7.301,0.0
+qwen4b_v2; to Claude if confidence < 0.90,C045,small,fraud_unauthorised,fraud_unauthorised,True,0.9,False,0.5,5.318,0.0
+qwen4b_v2; to Claude if confidence < 0.90,C046,small,not_received,not_received,True,0.9,False,0.0,6.572,0.0
+qwen4b_v2; to Claude if confidence < 0.90,C047,small,not_as_described,not_as_described,True,0.95,False,1.0,3.996,0.0
+qwen4b_v2; to Claude if confidence < 0.90,C048,small,subscription_cancelled,refund_not_processed,False,0.95,False,0.5,7.0,0.0
+qwen4b_v2; to Claude if confidence < 0.90,C049,small,processing_error,processing_error,True,0.95,False,1.0,4.258,0.0
+qwen4b_v2; to Claude if confidence < 0.90,C050,small,processing_error,processing_error,True,0.95,False,1.0,8.457,0.0
+qwen4b_v2; to Claude if confidence < 0.90,C051,small,not_as_described,not_as_described,True,0.95,False,0.6666666666666666,5.341,0.0
+qwen4b_v2; to Claude if confidence < 0.90,C052,small,refund_not_processed,refund_not_processed,True,0.9,False,0.5,6.823,0.0
+qwen4b_v2; to Claude if confidence < 0.90,C053,small,processing_error,processing_error,True,0.9,False,0.0,4.367,0.0
+qwen4b_v2; to Claude if confidence < 0.90,C054,small,not_received,not_received,True,0.95,False,1.0,5.321,0.0
+qwen4b_v2; to Claude if confidence < 0.90,C055,claude,fraud_unauthorised,processing_error,False,0.62,True,0.0,21.951,0.013886
+qwen4b_v2; to Claude if confidence < 0.90,C056,small,subscription_cancelled,not_as_described,False,0.9,False,0.0,6.78,0.0
+qwen4b_v2; to Claude if confidence < 0.90,C057,small,not_as_described,not_as_described,True,0.95,False,0.3333333333333333,8.261,0.0
+qwen4b_v2; to Claude if confidence < 0.90,C058,small,not_received,not_received,True,0.95,False,0.5,4.832,0.0
+qwen4b_v2; to Claude if confidence < 0.90,C059,small,fraud_unauthorised,fraud_unauthorised,True,0.95,False,0.5,4.762,0.0
+qwen4b_v2; to Claude if confidence < 0.90,C060,small,refund_not_processed,refund_not_processed,True,0.9,False,0.5,8.157,0.0
+qwen4b_v2; to Claude if confidence < 0.90,C061,small,subscription_cancelled,subscription_cancelled,True,0.95,False,0.5,3.937,0.0
+qwen4b_v2; to Claude if confidence < 0.90,C062,small,processing_error,processing_error,True,0.95,False,1.0,8.524,0.0
+qwen4b_v2; to Claude if confidence < 0.90,C063,claude,fraud_unauthorised,fraud_unauthorised,True,0.93,False,1.0,7.675,0.00762
+qwen4b_v2; to Claude if confidence < 0.90,C064,small,not_received,not_received,True,0.95,False,0.5,3.335,0.0
+qwen4b_v2; to Claude if confidence < 0.90,C065,claude,refund_not_processed,refund_not_processed,True,0.55,True,0.6666666666666666,14.597,0.01528
+qwen4b_v2; to Claude if confidence < 0.90,C066,small,refund_not_processed,refund_not_processed,True,0.9,False,0.6666666666666666,6.293,0.0
+qwen4b_v2; to Claude if confidence < 0.90,C067,claude,refund_not_processed,refund_not_processed,True,0.5,True,1.0,18.103,0.014816
+qwen4b_v2; to Claude if confidence < 0.90,C068,claude,processing_error,processing_error,True,0.93,False,1.0,5.729,0.00764
+qwen4b_v2; to Claude if confidence < 0.90,C069,small,fraud_unauthorised,fraud_unauthorised,True,0.95,False,1.0,4.936,0.0
+qwen4b_v2; to Claude if confidence < 0.90,C070,small,not_as_described,not_as_described,True,0.95,False,1.0,7.047,0.0
+qwen4b_v2; to Claude if confidence < 0.90,C071,small,not_as_described,not_as_described,True,0.95,False,0.5,4.112,0.0
+qwen4b_v2; to Claude if confidence < 0.90,C072,claude,refund_not_processed,refund_not_processed,True,0.78,False,0.5,18.623,0.01073
+qwen4b_v2; to Claude if confidence < 0.90,C073,small,processing_error,processing_error,True,0.95,False,0.5,3.54,0.0
+qwen4b_v2; to Claude if confidence < 0.90,C074,small,subscription_cancelled,subscription_cancelled,True,0.95,False,0.6666666666666666,6.579,0.0
+qwen4b_v2; to Claude if confidence < 0.90,C075,small,not_received,not_received,True,0.9,False,1.0,4.12,0.0
+qwen4b_v2; to Claude if confidence < 0.90,C076,small,processing_error,processing_error,True,0.9,False,0.5,4.174,0.0
+qwen4b_v2; to Claude if confidence < 0.90,C077,claude,processing_error,processing_error,True,0.55,True,1.0,13.73,0.007832
+qwen4b_v2; to Claude if confidence < 0.90,C078,small,not_as_described,not_as_described,True,0.95,False,1.0,6.222,0.0
+qwen4b_v2; to Claude if confidence < 0.90,C079,small,refund_not_processed,refund_not_processed,True,0.95,False,0.3333333333333333,6.497,0.0
+qwen4b_v2; to Claude if confidence < 0.90,C080,small,fraud_unauthorised,fraud_unauthorised,True,0.95,False,0.5,7.4,0.0
+qwen4b_v2; to Claude if confidence < 0.95,C001,small,subscription_cancelled,subscription_cancelled,True,0.95,False,0.6666666666666666,4.777,0.0
+qwen4b_v2; to Claude if confidence < 0.95,C002,claude,processing_error,processing_error,True,0.93,False,1.0,7.165,0.007554
+qwen4b_v2; to Claude if confidence < 0.95,C003,small,not_received,not_received,True,0.95,False,1.0,4.429,0.0
+qwen4b_v2; to Claude if confidence < 0.95,C004,small,fraud_unauthorised,fraud_unauthorised,True,0.95,False,0.6666666666666666,4.615,0.0
+qwen4b_v2; to Claude if confidence < 0.95,C005,small,refund_not_processed,refund_not_processed,True,0.95,False,0.5,4.029,0.0
+qwen4b_v2; to Claude if confidence < 0.95,C006,claude,not_received,not_received,True,0.62,True,1.0,6.943999999999999,0.007318
+qwen4b_v2; to Claude if confidence < 0.95,C007,small,not_as_described,not_as_described,True,0.95,False,1.0,4.548,0.0
+qwen4b_v2; to Claude if confidence < 0.95,C008,small,subscription_cancelled,subscription_cancelled,True,0.95,False,0.6666666666666666,4.156,0.0
+qwen4b_v2; to Claude if confidence < 0.95,C009,small,not_as_described,not_as_described,True,0.95,False,0.6666666666666666,4.939,0.0
+qwen4b_v2; to Claude if confidence < 0.95,C010,claude,processing_error,processing_error,True,0.8,False,1.0,4.971,0.007464
+qwen4b_v2; to Claude if confidence < 0.95,C011,small,refund_not_processed,refund_not_processed,True,0.95,False,1.0,4.336,0.0
+qwen4b_v2; to Claude if confidence < 0.95,C012,small,fraud_unauthorised,fraud_unauthorised,True,0.95,False,0.6666666666666666,2.529,0.0
+qwen4b_v2; to Claude if confidence < 0.95,C013,small,not_as_described,not_as_described,True,0.95,False,0.6666666666666666,5.12,0.0
+qwen4b_v2; to Claude if confidence < 0.95,C014,small,not_received,not_received,True,0.95,False,1.0,4.87,0.0
+qwen4b_v2; to Claude if confidence < 0.95,C015,small,processing_error,processing_error,True,0.95,False,1.0,2.822,0.0
+qwen4b_v2; to Claude if confidence < 0.95,C016,claude,refund_not_processed,not_as_described,False,0.55,True,0.6666666666666666,11.642,0.01322
+qwen4b_v2; to Claude if confidence < 0.95,C017,small,processing_error,processing_error,True,0.95,False,1.0,4.316,0.0
+qwen4b_v2; to Claude if confidence < 0.95,C018,small,refund_not_processed,refund_not_processed,True,0.95,False,1.0,4.978,0.0
+qwen4b_v2; to Claude if confidence < 0.95,C019,small,fraud_unauthorised,fraud_unauthorised,True,0.95,False,0.5,5.522,0.0
+qwen4b_v2; to Claude if confidence < 0.95,C020,small,not_as_described,not_as_described,True,0.95,False,0.0,6.737,0.0
+qwen4b_v2; to Claude if confidence < 0.95,C021,small,subscription_cancelled,subscription_cancelled,True,0.95,False,1.0,6.661,0.0
+qwen4b_v2; to Claude if confidence < 0.95,C022,small,fraud_unauthorised,fraud_unauthorised,True,0.95,False,0.5,4.262,0.0
+qwen4b_v2; to Claude if confidence < 0.95,C023,small,not_received,not_received,True,0.95,False,1.0,7.663,0.0
+qwen4b_v2; to Claude if confidence < 0.95,C024,small,not_as_described,not_as_described,True,0.95,False,1.0,6.621,0.0
+qwen4b_v2; to Claude if confidence < 0.95,C025,small,processing_error,processing_error,True,0.95,False,1.0,6.543,0.0
+qwen4b_v2; to Claude if confidence < 0.95,C026,small,refund_not_processed,refund_not_processed,True,0.95,False,0.5,7.345,0.0
+qwen4b_v2; to Claude if confidence < 0.95,C027,claude,subscription_cancelled,subscription_cancelled,True,0.62,True,0.6666666666666666,13.722,0.007424
+qwen4b_v2; to Claude if confidence < 0.95,C028,claude,processing_error,processing_error,True,0.93,False,1.0,7.173,0.007654
+qwen4b_v2; to Claude if confidence < 0.95,C029,small,not_as_described,not_as_described,True,0.95,False,0.0,8.082,0.0
+qwen4b_v2; to Claude if confidence < 0.95,C030,small,subscription_cancelled,subscription_cancelled,True,0.95,False,0.6666666666666666,7.781,0.0
+qwen4b_v2; to Claude if confidence < 0.95,C031,small,fraud_unauthorised,fraud_unauthorised,True,0.95,False,1.0,5.296,0.0
+qwen4b_v2; to Claude if confidence < 0.95,C032,small,not_as_described,not_as_described,True,0.95,False,1.0,8.156,0.0
+qwen4b_v2; to Claude if confidence < 0.95,C033,claude,processing_error,processing_error,True,0.5,True,1.0,20.628,0.013152
+qwen4b_v2; to Claude if confidence < 0.95,C034,small,refund_not_processed,refund_not_processed,True,0.95,False,1.0,7.412,0.0
+qwen4b_v2; to Claude if confidence < 0.95,C035,claude,not_as_described,not_as_described,True,0.82,False,1.0,6.648,0.007768
+qwen4b_v2; to Claude if confidence < 0.95,C036,small,processing_error,processing_error,True,0.95,False,1.0,4.515,0.0
+qwen4b_v2; to Claude if confidence < 0.95,C037,small,not_received,not_received,True,0.95,False,0.5,3.891,0.0
+qwen4b_v2; to Claude if confidence < 0.95,C038,small,not_as_described,not_as_described,True,0.95,False,0.0,4.835,0.0
+qwen4b_v2; to Claude if confidence < 0.95,C039,small,refund_not_processed,refund_not_processed,True,0.95,False,1.0,8.399,0.0
+qwen4b_v2; to Claude if confidence < 0.95,C040,small,fraud_unauthorised,fraud_unauthorised,True,0.95,False,1.0,5.114,0.0
+qwen4b_v2; to Claude if confidence < 0.95,C041,small,subscription_cancelled,subscription_cancelled,True,0.95,False,0.5,6.481,0.0
+qwen4b_v2; to Claude if confidence < 0.95,C042,small,processing_error,processing_error,True,0.95,False,1.0,4.399,0.0
+qwen4b_v2; to Claude if confidence < 0.95,C043,small,not_received,not_received,True,0.95,False,1.0,7.516,0.0
+qwen4b_v2; to Claude if confidence < 0.95,C044,claude,refund_not_processed,refund_not_processed,True,0.72,False,0.5,11.312000000000001,0.015298
+qwen4b_v2; to Claude if confidence < 0.95,C045,claude,fraud_unauthorised,fraud_unauthorised,True,0.95,False,1.0,8.52,0.007636
+qwen4b_v2; to Claude if confidence < 0.95,C046,claude,not_received,not_received,True,0.8,False,0.6666666666666666,8.918,0.007344
+qwen4b_v2; to Claude if confidence < 0.95,C047,small,not_as_described,not_as_described,True,0.95,False,1.0,3.996,0.0
+qwen4b_v2; to Claude if confidence < 0.95,C048,small,subscription_cancelled,refund_not_processed,False,0.95,False,0.5,7.0,0.0
+qwen4b_v2; to Claude if confidence < 0.95,C049,small,processing_error,processing_error,True,0.95,False,1.0,4.258,0.0
+qwen4b_v2; to Claude if confidence < 0.95,C050,small,processing_error,processing_error,True,0.95,False,1.0,8.457,0.0
+qwen4b_v2; to Claude if confidence < 0.95,C051,small,not_as_described,not_as_described,True,0.95,False,0.6666666666666666,5.341,0.0
+qwen4b_v2; to Claude if confidence < 0.95,C052,claude,refund_not_processed,refund_not_processed,True,0.9,False,1.0,8.873000000000001,0.007026
+qwen4b_v2; to Claude if confidence < 0.95,C053,claude,processing_error,processing_error,True,0.86,False,1.0,9.85,0.012084
+qwen4b_v2; to Claude if confidence < 0.95,C054,small,not_received,not_received,True,0.95,False,1.0,5.321,0.0
+qwen4b_v2; to Claude if confidence < 0.95,C055,claude,fraud_unauthorised,processing_error,False,0.62,True,0.0,21.951,0.013886
+qwen4b_v2; to Claude if confidence < 0.95,C056,claude,not_as_described,not_as_described,True,0.6,True,0.5,11.995000000000001,0.011294
+qwen4b_v2; to Claude if confidence < 0.95,C057,small,not_as_described,not_as_described,True,0.95,False,0.3333333333333333,8.261,0.0
+qwen4b_v2; to Claude if confidence < 0.95,C058,small,not_received,not_received,True,0.95,False,0.5,4.832,0.0
+qwen4b_v2; to Claude if confidence < 0.95,C059,small,fraud_unauthorised,fraud_unauthorised,True,0.95,False,0.5,4.762,0.0
+qwen4b_v2; to Claude if confidence < 0.95,C060,claude,refund_not_processed,refund_not_processed,True,0.93,False,0.5,10.207,0.007392
+qwen4b_v2; to Claude if confidence < 0.95,C061,small,subscription_cancelled,subscription_cancelled,True,0.95,False,0.5,3.937,0.0
+qwen4b_v2; to Claude if confidence < 0.95,C062,small,processing_error,processing_error,True,0.95,False,1.0,8.524,0.0
+qwen4b_v2; to Claude if confidence < 0.95,C063,claude,fraud_unauthorised,fraud_unauthorised,True,0.93,False,1.0,7.675,0.00762
+qwen4b_v2; to Claude if confidence < 0.95,C064,small,not_received,not_received,True,0.95,False,0.5,3.335,0.0
+qwen4b_v2; to Claude if confidence < 0.95,C065,claude,refund_not_processed,refund_not_processed,True,0.55,True,0.6666666666666666,14.597,0.01528
+qwen4b_v2; to Claude if confidence < 0.95,C066,claude,refund_not_processed,refund_not_processed,True,0.96,False,0.6666666666666666,8.33,0.007318
+qwen4b_v2; to Claude if confidence < 0.95,C067,claude,refund_not_processed,refund_not_processed,True,0.5,True,1.0,18.103,0.014816
+qwen4b_v2; to Claude if confidence < 0.95,C068,claude,processing_error,processing_error,True,0.93,False,1.0,5.729,0.00764
+qwen4b_v2; to Claude if confidence < 0.95,C069,small,fraud_unauthorised,fraud_unauthorised,True,0.95,False,1.0,4.936,0.0
+qwen4b_v2; to Claude if confidence < 0.95,C070,small,not_as_described,not_as_described,True,0.95,False,1.0,7.047,0.0
+qwen4b_v2; to Claude if confidence < 0.95,C071,small,not_as_described,not_as_described,True,0.95,False,0.5,4.112,0.0
+qwen4b_v2; to Claude if confidence < 0.95,C072,claude,refund_not_processed,refund_not_processed,True,0.78,False,0.5,18.623,0.01073
+qwen4b_v2; to Claude if confidence < 0.95,C073,small,processing_error,processing_error,True,0.95,False,0.5,3.54,0.0
+qwen4b_v2; to Claude if confidence < 0.95,C074,small,subscription_cancelled,subscription_cancelled,True,0.95,False,0.6666666666666666,6.579,0.0
+qwen4b_v2; to Claude if confidence < 0.95,C075,claude,not_received,not_received,True,0.9,False,1.0,6.25,0.007522
+qwen4b_v2; to Claude if confidence < 0.95,C076,claude,processing_error,processing_error,True,0.86,False,1.0,11.848,0.010376
+qwen4b_v2; to Claude if confidence < 0.95,C077,claude,processing_error,processing_error,True,0.55,True,1.0,13.73,0.007832
+qwen4b_v2; to Claude if confidence < 0.95,C078,small,not_as_described,not_as_described,True,0.95,False,1.0,6.222,0.0
+qwen4b_v2; to Claude if confidence < 0.95,C079,small,refund_not_processed,refund_not_processed,True,0.95,False,0.3333333333333333,6.497,0.0
+qwen4b_v2; to Claude if confidence < 0.95,C080,small,fraud_unauthorised,fraud_unauthorised,True,0.95,False,0.5,7.4,0.0
+qwen4b_v2 + qwen9b_v1 agree; else Claude,C001,small,subscription_cancelled,subscription_cancelled,True,0.95,False,0.6666666666666666,10.914,0.0
+qwen4b_v2 + qwen9b_v1 agree; else Claude,C002,small,processing_error,processing_error,True,0.9,False,1.0,10.8,0.0
+qwen4b_v2 + qwen9b_v1 agree; else Claude,C003,small,not_received,not_received,True,0.95,False,1.0,10.769,0.0
+qwen4b_v2 + qwen9b_v1 agree; else Claude,C004,small,fraud_unauthorised,fraud_unauthorised,True,0.95,False,0.6666666666666666,15.007,0.0
+qwen4b_v2 + qwen9b_v1 agree; else Claude,C005,small,refund_not_processed,refund_not_processed,True,0.95,False,0.5,35.789,0.0
+qwen4b_v2 + qwen9b_v1 agree; else Claude,C006,small,not_received,not_received,True,0.85,False,0.6666666666666666,22.766,0.0
+qwen4b_v2 + qwen9b_v1 agree; else Claude,C007,small,not_as_described,not_as_described,True,0.95,False,1.0,25.869999999999997,0.0
+qwen4b_v2 + qwen9b_v1 agree; else Claude,C008,small,subscription_cancelled,subscription_cancelled,True,0.95,False,0.6666666666666666,16.83,0.0
+qwen4b_v2 + qwen9b_v1 agree; else Claude,C009,small,not_as_described,not_as_described,True,0.95,False,0.6666666666666666,22.389,0.0
+qwen4b_v2 + qwen9b_v1 agree; else Claude,C010,small,processing_error,processing_error,True,0.9,False,0.3333333333333333,13.998,0.0
+qwen4b_v2 + qwen9b_v1 agree; else Claude,C011,small,refund_not_processed,refund_not_processed,True,0.95,False,1.0,23.42,0.0
+qwen4b_v2 + qwen9b_v1 agree; else Claude,C012,small,fraud_unauthorised,fraud_unauthorised,True,0.95,False,0.6666666666666666,18.634,0.0
+qwen4b_v2 + qwen9b_v1 agree; else Claude,C013,small,not_as_described,not_as_described,True,0.95,False,0.6666666666666666,23.434,0.0
+qwen4b_v2 + qwen9b_v1 agree; else Claude,C014,small,not_received,not_received,True,0.95,False,1.0,21.219,0.0
+qwen4b_v2 + qwen9b_v1 agree; else Claude,C015,small,processing_error,processing_error,True,0.95,False,1.0,13.114999999999998,0.0
+qwen4b_v2 + qwen9b_v1 agree; else Claude,C016,small,not_as_described,not_as_described,True,0.85,False,0.6666666666666666,20.367,0.0
+qwen4b_v2 + qwen9b_v1 agree; else Claude,C017,small,processing_error,processing_error,True,0.95,False,1.0,20.715,0.0
+qwen4b_v2 + qwen9b_v1 agree; else Claude,C018,small,refund_not_processed,refund_not_processed,True,0.95,False,1.0,21.686999999999998,0.0
+qwen4b_v2 + qwen9b_v1 agree; else Claude,C019,small,fraud_unauthorised,fraud_unauthorised,True,0.95,False,0.5,22.939,0.0
+qwen4b_v2 + qwen9b_v1 agree; else Claude,C020,small,not_as_described,not_as_described,True,0.95,False,0.0,20.332,0.0
+qwen4b_v2 + qwen9b_v1 agree; else Claude,C021,small,subscription_cancelled,subscription_cancelled,True,0.95,False,1.0,17.647,0.0
+qwen4b_v2 + qwen9b_v1 agree; else Claude,C022,small,fraud_unauthorised,fraud_unauthorised,True,0.95,False,0.5,20.372,0.0
+qwen4b_v2 + qwen9b_v1 agree; else Claude,C023,small,not_received,not_received,True,0.95,False,1.0,25.98,0.0
+qwen4b_v2 + qwen9b_v1 agree; else Claude,C024,small,not_as_described,not_as_described,True,0.95,False,1.0,24.490000000000002,0.0
+qwen4b_v2 + qwen9b_v1 agree; else Claude,C025,small,processing_error,processing_error,True,0.95,False,1.0,15.232,0.0
+qwen4b_v2 + qwen9b_v1 agree; else Claude,C026,small,refund_not_processed,refund_not_processed,True,0.95,False,0.5,14.809000000000001,0.0
+qwen4b_v2 + qwen9b_v1 agree; else Claude,C027,small,subscription_cancelled,subscription_cancelled,True,0.9,False,1.0,16.488999999999997,0.0
+qwen4b_v2 + qwen9b_v1 agree; else Claude,C028,small,processing_error,processing_error,True,0.85,False,0.5,13.011,0.0
+qwen4b_v2 + qwen9b_v1 agree; else Claude,C029,small,not_as_described,not_as_described,True,0.95,False,0.0,16.913,0.0
+qwen4b_v2 + qwen9b_v1 agree; else Claude,C030,small,subscription_cancelled,subscription_cancelled,True,0.95,False,0.6666666666666666,16.163999999999998,0.0
+qwen4b_v2 + qwen9b_v1 agree; else Claude,C031,small,fraud_unauthorised,fraud_unauthorised,True,0.95,False,1.0,14.905999999999999,0.0
+qwen4b_v2 + qwen9b_v1 agree; else Claude,C032,small,not_as_described,not_as_described,True,0.95,False,1.0,17.252000000000002,0.0
+qwen4b_v2 + qwen9b_v1 agree; else Claude,C033,small,processing_error,processing_error,True,0.9,False,1.0,23.146,0.0
+qwen4b_v2 + qwen9b_v1 agree; else Claude,C034,small,refund_not_processed,refund_not_processed,True,0.95,False,1.0,16.424,0.0
+qwen4b_v2 + qwen9b_v1 agree; else Claude,C035,small,not_as_described,not_as_described,True,0.9,False,1.0,13.925,0.0
+qwen4b_v2 + qwen9b_v1 agree; else Claude,C036,small,processing_error,processing_error,True,0.95,False,1.0,14.033000000000001,0.0
+qwen4b_v2 + qwen9b_v1 agree; else Claude,C037,small,not_received,not_received,True,0.95,False,0.5,13.807,0.0
+qwen4b_v2 + qwen9b_v1 agree; else Claude,C038,small,not_as_described,not_as_described,True,0.95,False,0.0,11.43,0.0
+qwen4b_v2 + qwen9b_v1 agree; else Claude,C039,small,refund_not_processed,refund_not_processed,True,0.95,False,1.0,17.817999999999998,0.0
+qwen4b_v2 + qwen9b_v1 agree; else Claude,C040,small,fraud_unauthorised,fraud_unauthorised,True,0.95,False,1.0,12.474,0.0
+qwen4b_v2 + qwen9b_v1 agree; else Claude,C041,small,subscription_cancelled,subscription_cancelled,True,0.95,False,0.5,17.558,0.0
+qwen4b_v2 + qwen9b_v1 agree; else Claude,C042,small,processing_error,processing_error,True,0.95,False,1.0,12.562000000000001,0.0
+qwen4b_v2 + qwen9b_v1 agree; else Claude,C043,small,not_received,not_received,True,0.95,False,1.0,21.433999999999997,0.0
+qwen4b_v2 + qwen9b_v1 agree; else Claude,C044,claude,refund_not_processed,refund_not_processed,True,0.72,False,0.5,23.439,0.015298
+qwen4b_v2 + qwen9b_v1 agree; else Claude,C045,small,fraud_unauthorised,fraud_unauthorised,True,0.9,False,0.5,19.241999999999997,0.0
+qwen4b_v2 + qwen9b_v1 agree; else Claude,C046,small,not_received,not_received,True,0.9,False,0.0,20.75,0.0
+qwen4b_v2 + qwen9b_v1 agree; else Claude,C047,claude,not_as_described,not_as_described,True,0.93,False,1.0,20.125,0.007612
+qwen4b_v2 + qwen9b_v1 agree; else Claude,C048,small,subscription_cancelled,refund_not_processed,False,0.95,False,0.5,15.638,0.0
+qwen4b_v2 + qwen9b_v1 agree; else Claude,C049,small,processing_error,processing_error,True,0.95,False,1.0,13.260000000000002,0.0
+qwen4b_v2 + qwen9b_v1 agree; else Claude,C050,small,processing_error,processing_error,True,0.95,False,1.0,19.824,0.0
+qwen4b_v2 + qwen9b_v1 agree; else Claude,C051,small,not_as_described,not_as_described,True,0.95,False,0.6666666666666666,15.015,0.0
+qwen4b_v2 + qwen9b_v1 agree; else Claude,C052,small,refund_not_processed,refund_not_processed,True,0.9,False,0.5,16.795,0.0
+qwen4b_v2 + qwen9b_v1 agree; else Claude,C053,small,processing_error,processing_error,True,0.9,False,0.0,13.209,0.0
+qwen4b_v2 + qwen9b_v1 agree; else Claude,C054,small,not_received,not_received,True,0.95,False,1.0,14.286,0.0
+qwen4b_v2 + qwen9b_v1 agree; else Claude,C055,small,processing_error,processing_error,True,0.85,False,0.3333333333333333,29.248,0.0
+qwen4b_v2 + qwen9b_v1 agree; else Claude,C056,small,subscription_cancelled,not_as_described,False,0.9,False,0.0,20.021,0.0
+qwen4b_v2 + qwen9b_v1 agree; else Claude,C057,small,not_as_described,not_as_described,True,0.95,False,0.3333333333333333,20.552999999999997,0.0
+qwen4b_v2 + qwen9b_v1 agree; else Claude,C058,small,not_received,not_received,True,0.95,False,0.5,17.730999999999998,0.0
+qwen4b_v2 + qwen9b_v1 agree; else Claude,C059,small,fraud_unauthorised,fraud_unauthorised,True,0.95,False,0.5,15.579999999999998,0.0
+qwen4b_v2 + qwen9b_v1 agree; else Claude,C060,small,refund_not_processed,refund_not_processed,True,0.9,False,0.5,23.363,0.0
+qwen4b_v2 + qwen9b_v1 agree; else Claude,C061,small,subscription_cancelled,subscription_cancelled,True,0.95,False,0.5,19.618,0.0
+qwen4b_v2 + qwen9b_v1 agree; else Claude,C062,small,processing_error,processing_error,True,0.95,False,1.0,24.701999999999998,0.0
+qwen4b_v2 + qwen9b_v1 agree; else Claude,C063,small,fraud_unauthorised,fraud_unauthorised,True,0.85,False,0.3333333333333333,17.759999999999998,0.0
+qwen4b_v2 + qwen9b_v1 agree; else Claude,C064,small,not_received,not_received,True,0.95,False,0.5,17.631,0.0
+qwen4b_v2 + qwen9b_v1 agree; else Claude,C065,small,refund_not_processed,refund_not_processed,True,0.85,False,0.6666666666666666,15.934,0.0
+qwen4b_v2 + qwen9b_v1 agree; else Claude,C066,small,refund_not_processed,refund_not_processed,True,0.9,False,0.6666666666666666,20.966,0.0
+qwen4b_v2 + qwen9b_v1 agree; else Claude,C067,small,refund_not_processed,refund_not_processed,True,0.85,False,1.0,21.523,0.0
+qwen4b_v2 + qwen9b_v1 agree; else Claude,C068,small,processing_error,processing_error,True,0.85,False,0.5,14.49,0.0
+qwen4b_v2 + qwen9b_v1 agree; else Claude,C069,small,fraud_unauthorised,fraud_unauthorised,True,0.95,False,1.0,15.736,0.0
+qwen4b_v2 + qwen9b_v1 agree; else Claude,C070,small,not_as_described,not_as_described,True,0.95,False,1.0,21.637999999999998,0.0
+qwen4b_v2 + qwen9b_v1 agree; else Claude,C071,small,not_as_described,not_as_described,True,0.95,False,0.5,12.894,0.0
+qwen4b_v2 + qwen9b_v1 agree; else Claude,C072,small,refund_not_processed,refund_not_processed,True,0.85,False,0.5,25.726,0.0
+qwen4b_v2 + qwen9b_v1 agree; else Claude,C073,small,processing_error,processing_error,True,0.95,False,0.5,13.082999999999998,0.0
+qwen4b_v2 + qwen9b_v1 agree; else Claude,C074,small,subscription_cancelled,subscription_cancelled,True,0.95,False,0.6666666666666666,20.993,0.0
+qwen4b_v2 + qwen9b_v1 agree; else Claude,C075,small,not_received,not_received,True,0.9,False,1.0,13.437000000000001,0.0
+qwen4b_v2 + qwen9b_v1 agree; else Claude,C076,small,processing_error,processing_error,True,0.9,False,0.5,19.517,0.0
+qwen4b_v2 + qwen9b_v1 agree; else Claude,C077,small,processing_error,processing_error,True,0.85,False,1.0,26.282,0.0
+qwen4b_v2 + qwen9b_v1 agree; else Claude,C078,small,not_as_described,not_as_described,True,0.95,False,1.0,20.644000000000002,0.0
+qwen4b_v2 + qwen9b_v1 agree; else Claude,C079,small,refund_not_processed,refund_not_processed,True,0.95,False,0.3333333333333333,16.833,0.0
+qwen4b_v2 + qwen9b_v1 agree; else Claude,C080,small,fraud_unauthorised,fraud_unauthorised,True,0.95,False,0.5,22.329,0.0
+Agree AND qwen4b_v2 confidence ≥ 0.90; else Claude,C001,small,subscription_cancelled,subscription_cancelled,True,0.95,False,0.6666666666666666,10.914,0.0
+Agree AND qwen4b_v2 confidence ≥ 0.90; else Claude,C002,small,processing_error,processing_error,True,0.9,False,1.0,10.8,0.0
+Agree AND qwen4b_v2 confidence ≥ 0.90; else Claude,C003,small,not_received,not_received,True,0.95,False,1.0,10.769,0.0
+Agree AND qwen4b_v2 confidence ≥ 0.90; else Claude,C004,small,fraud_unauthorised,fraud_unauthorised,True,0.95,False,0.6666666666666666,15.007,0.0
+Agree AND qwen4b_v2 confidence ≥ 0.90; else Claude,C005,small,refund_not_processed,refund_not_processed,True,0.95,False,0.5,35.789,0.0
+Agree AND qwen4b_v2 confidence ≥ 0.90; else Claude,C006,claude,not_received,not_received,True,0.62,True,1.0,24.993,0.007318
+Agree AND qwen4b_v2 confidence ≥ 0.90; else Claude,C007,small,not_as_described,not_as_described,True,0.95,False,1.0,25.869999999999997,0.0
+Agree AND qwen4b_v2 confidence ≥ 0.90; else Claude,C008,small,subscription_cancelled,subscription_cancelled,True,0.95,False,0.6666666666666666,16.83,0.0
+Agree AND qwen4b_v2 confidence ≥ 0.90; else Claude,C009,small,not_as_described,not_as_described,True,0.95,False,0.6666666666666666,22.389,0.0
+Agree AND qwen4b_v2 confidence ≥ 0.90; else Claude,C010,small,processing_error,processing_error,True,0.9,False,0.3333333333333333,13.998,0.0
+Agree AND qwen4b_v2 confidence ≥ 0.90; else Claude,C011,small,refund_not_processed,refund_not_processed,True,0.95,False,1.0,23.42,0.0
+Agree AND qwen4b_v2 confidence ≥ 0.90; else Claude,C012,small,fraud_unauthorised,fraud_unauthorised,True,0.95,False,0.6666666666666666,18.634,0.0
+Agree AND qwen4b_v2 confidence ≥ 0.90; else Claude,C013,small,not_as_described,not_as_described,True,0.95,False,0.6666666666666666,23.434,0.0
+Agree AND qwen4b_v2 confidence ≥ 0.90; else Claude,C014,small,not_received,not_received,True,0.95,False,1.0,21.219,0.0
+Agree AND qwen4b_v2 confidence ≥ 0.90; else Claude,C015,small,processing_error,processing_error,True,0.95,False,1.0,13.114999999999998,0.0
+Agree AND qwen4b_v2 confidence ≥ 0.90; else Claude,C016,claude,refund_not_processed,not_as_described,False,0.55,True,0.6666666666666666,26.939,0.01322
+Agree AND qwen4b_v2 confidence ≥ 0.90; else Claude,C017,small,processing_error,processing_error,True,0.95,False,1.0,20.715,0.0
+Agree AND qwen4b_v2 confidence ≥ 0.90; else Claude,C018,small,refund_not_processed,refund_not_processed,True,0.95,False,1.0,21.686999999999998,0.0
+Agree AND qwen4b_v2 confidence ≥ 0.90; else Claude,C019,small,fraud_unauthorised,fraud_unauthorised,True,0.95,False,0.5,22.939,0.0
+Agree AND qwen4b_v2 confidence ≥ 0.90; else Claude,C020,small,not_as_described,not_as_described,True,0.95,False,0.0,20.332,0.0
+Agree AND qwen4b_v2 confidence ≥ 0.90; else Claude,C021,small,subscription_cancelled,subscription_cancelled,True,0.95,False,1.0,17.647,0.0
+Agree AND qwen4b_v2 confidence ≥ 0.90; else Claude,C022,small,fraud_unauthorised,fraud_unauthorised,True,0.95,False,0.5,20.372,0.0
+Agree AND qwen4b_v2 confidence ≥ 0.90; else Claude,C023,small,not_received,not_received,True,0.95,False,1.0,25.98,0.0
+Agree AND qwen4b_v2 confidence ≥ 0.90; else Claude,C024,small,not_as_described,not_as_described,True,0.95,False,1.0,24.490000000000002,0.0
+Agree AND qwen4b_v2 confidence ≥ 0.90; else Claude,C025,small,processing_error,processing_error,True,0.95,False,1.0,15.232,0.0
+Agree AND qwen4b_v2 confidence ≥ 0.90; else Claude,C026,small,refund_not_processed,refund_not_processed,True,0.95,False,0.5,14.809000000000001,0.0
+Agree AND qwen4b_v2 confidence ≥ 0.90; else Claude,C027,small,subscription_cancelled,subscription_cancelled,True,0.9,False,1.0,16.488999999999997,0.0
+Agree AND qwen4b_v2 confidence ≥ 0.90; else Claude,C028,claude,processing_error,processing_error,True,0.93,False,1.0,15.447,0.007654
+Agree AND qwen4b_v2 confidence ≥ 0.90; else Claude,C029,small,not_as_described,not_as_described,True,0.95,False,0.0,16.913,0.0
+Agree AND qwen4b_v2 confidence ≥ 0.90; else Claude,C030,small,subscription_cancelled,subscription_cancelled,True,0.95,False,0.6666666666666666,16.163999999999998,0.0
+Agree AND qwen4b_v2 confidence ≥ 0.90; else Claude,C031,small,fraud_unauthorised,fraud_unauthorised,True,0.95,False,1.0,14.905999999999999,0.0
+Agree AND qwen4b_v2 confidence ≥ 0.90; else Claude,C032,small,not_as_described,not_as_described,True,0.95,False,1.0,17.252000000000002,0.0
+Agree AND qwen4b_v2 confidence ≥ 0.90; else Claude,C033,small,processing_error,processing_error,True,0.9,False,1.0,23.146,0.0
+Agree AND qwen4b_v2 confidence ≥ 0.90; else Claude,C034,small,refund_not_processed,refund_not_processed,True,0.95,False,1.0,16.424,0.0
+Agree AND qwen4b_v2 confidence ≥ 0.90; else Claude,C035,small,not_as_described,not_as_described,True,0.9,False,1.0,13.925,0.0
+Agree AND qwen4b_v2 confidence ≥ 0.90; else Claude,C036,small,processing_error,processing_error,True,0.95,False,1.0,14.033000000000001,0.0
+Agree AND qwen4b_v2 confidence ≥ 0.90; else Claude,C037,small,not_received,not_received,True,0.95,False,0.5,13.807,0.0
+Agree AND qwen4b_v2 confidence ≥ 0.90; else Claude,C038,small,not_as_described,not_as_described,True,0.95,False,0.0,11.43,0.0
+Agree AND qwen4b_v2 confidence ≥ 0.90; else Claude,C039,small,refund_not_processed,refund_not_processed,True,0.95,False,1.0,17.817999999999998,0.0
+Agree AND qwen4b_v2 confidence ≥ 0.90; else Claude,C040,small,fraud_unauthorised,fraud_unauthorised,True,0.95,False,1.0,12.474,0.0
+Agree AND qwen4b_v2 confidence ≥ 0.90; else Claude,C041,small,subscription_cancelled,subscription_cancelled,True,0.95,False,0.5,17.558,0.0
+Agree AND qwen4b_v2 confidence ≥ 0.90; else Claude,C042,small,processing_error,processing_error,True,0.95,False,1.0,12.562000000000001,0.0
+Agree AND qwen4b_v2 confidence ≥ 0.90; else Claude,C043,small,not_received,not_received,True,0.95,False,1.0,21.433999999999997,0.0
+Agree AND qwen4b_v2 confidence ≥ 0.90; else Claude,C044,claude,refund_not_processed,refund_not_processed,True,0.72,False,0.5,23.439,0.015298
+Agree AND qwen4b_v2 confidence ≥ 0.90; else Claude,C045,small,fraud_unauthorised,fraud_unauthorised,True,0.9,False,0.5,19.241999999999997,0.0
+Agree AND qwen4b_v2 confidence ≥ 0.90; else Claude,C046,small,not_received,not_received,True,0.9,False,0.0,20.75,0.0
+Agree AND qwen4b_v2 confidence ≥ 0.90; else Claude,C047,claude,not_as_described,not_as_described,True,0.93,False,1.0,20.125,0.007612
+Agree AND qwen4b_v2 confidence ≥ 0.90; else Claude,C048,small,subscription_cancelled,refund_not_processed,False,0.95,False,0.5,15.638,0.0
+Agree AND qwen4b_v2 confidence ≥ 0.90; else Claude,C049,small,processing_error,processing_error,True,0.95,False,1.0,13.260000000000002,0.0
+Agree AND qwen4b_v2 confidence ≥ 0.90; else Claude,C050,small,processing_error,processing_error,True,0.95,False,1.0,19.824,0.0
+Agree AND qwen4b_v2 confidence ≥ 0.90; else Claude,C051,small,not_as_described,not_as_described,True,0.95,False,0.6666666666666666,15.015,0.0
+Agree AND qwen4b_v2 confidence ≥ 0.90; else Claude,C052,small,refund_not_processed,refund_not_processed,True,0.9,False,0.5,16.795,0.0
+Agree AND qwen4b_v2 confidence ≥ 0.90; else Claude,C053,small,processing_error,processing_error,True,0.9,False,0.0,13.209,0.0
+Agree AND qwen4b_v2 confidence ≥ 0.90; else Claude,C054,small,not_received,not_received,True,0.95,False,1.0,14.286,0.0
+Agree AND qwen4b_v2 confidence ≥ 0.90; else Claude,C055,claude,fraud_unauthorised,processing_error,False,0.62,True,0.0,37.2,0.013886
+Agree AND qwen4b_v2 confidence ≥ 0.90; else Claude,C056,small,subscription_cancelled,not_as_described,False,0.9,False,0.0,20.021,0.0
+Agree AND qwen4b_v2 confidence ≥ 0.90; else Claude,C057,small,not_as_described,not_as_described,True,0.95,False,0.3333333333333333,20.552999999999997,0.0
+Agree AND qwen4b_v2 confidence ≥ 0.90; else Claude,C058,small,not_received,not_received,True,0.95,False,0.5,17.730999999999998,0.0
+Agree AND qwen4b_v2 confidence ≥ 0.90; else Claude,C059,small,fraud_unauthorised,fraud_unauthorised,True,0.95,False,0.5,15.579999999999998,0.0
+Agree AND qwen4b_v2 confidence ≥ 0.90; else Claude,C060,small,refund_not_processed,refund_not_processed,True,0.9,False,0.5,23.363,0.0
+Agree AND qwen4b_v2 confidence ≥ 0.90; else Claude,C061,small,subscription_cancelled,subscription_cancelled,True,0.95,False,0.5,19.618,0.0
+Agree AND qwen4b_v2 confidence ≥ 0.90; else Claude,C062,small,processing_error,processing_error,True,0.95,False,1.0,24.701999999999998,0.0
+Agree AND qwen4b_v2 confidence ≥ 0.90; else Claude,C063,claude,fraud_unauthorised,fraud_unauthorised,True,0.93,False,1.0,20.177999999999997,0.00762
+Agree AND qwen4b_v2 confidence ≥ 0.90; else Claude,C064,small,not_received,not_received,True,0.95,False,0.5,17.631,0.0
+Agree AND qwen4b_v2 confidence ≥ 0.90; else Claude,C065,claude,refund_not_processed,refund_not_processed,True,0.55,True,0.6666666666666666,23.674999999999997,0.01528
+Agree AND qwen4b_v2 confidence ≥ 0.90; else Claude,C066,small,refund_not_processed,refund_not_processed,True,0.9,False,0.6666666666666666,20.966,0.0
+Agree AND qwen4b_v2 confidence ≥ 0.90; else Claude,C067,claude,refund_not_processed,refund_not_processed,True,0.5,True,1.0,32.646,0.014816
+Agree AND qwen4b_v2 confidence ≥ 0.90; else Claude,C068,claude,processing_error,processing_error,True,0.93,False,1.0,16.715,0.00764
+Agree AND qwen4b_v2 confidence ≥ 0.90; else Claude,C069,small,fraud_unauthorised,fraud_unauthorised,True,0.95,False,1.0,15.736,0.0
+Agree AND qwen4b_v2 confidence ≥ 0.90; else Claude,C070,small,not_as_described,not_as_described,True,0.95,False,1.0,21.637999999999998,0.0
+Agree AND qwen4b_v2 confidence ≥ 0.90; else Claude,C071,small,not_as_described,not_as_described,True,0.95,False,0.5,12.894,0.0
+Agree AND qwen4b_v2 confidence ≥ 0.90; else Claude,C072,claude,refund_not_processed,refund_not_processed,True,0.78,False,0.5,33.61,0.01073
+Agree AND qwen4b_v2 confidence ≥ 0.90; else Claude,C073,small,processing_error,processing_error,True,0.95,False,0.5,13.082999999999998,0.0
+Agree AND qwen4b_v2 confidence ≥ 0.90; else Claude,C074,small,subscription_cancelled,subscription_cancelled,True,0.95,False,0.6666666666666666,20.993,0.0
+Agree AND qwen4b_v2 confidence ≥ 0.90; else Claude,C075,small,not_received,not_received,True,0.9,False,1.0,13.437000000000001,0.0
+Agree AND qwen4b_v2 confidence ≥ 0.90; else Claude,C076,small,processing_error,processing_error,True,0.9,False,0.5,19.517,0.0
+Agree AND qwen4b_v2 confidence ≥ 0.90; else Claude,C077,claude,processing_error,processing_error,True,0.55,True,1.0,29.028,0.007832
+Agree AND qwen4b_v2 confidence ≥ 0.90; else Claude,C078,small,not_as_described,not_as_described,True,0.95,False,1.0,20.644000000000002,0.0
+Agree AND qwen4b_v2 confidence ≥ 0.90; else Claude,C079,small,refund_not_processed,refund_not_processed,True,0.95,False,0.3333333333333333,16.833,0.0
+Agree AND qwen4b_v2 confidence ≥ 0.90; else Claude,C080,small,fraud_unauthorised,fraud_unauthorised,True,0.95,False,0.5,22.329,0.0
