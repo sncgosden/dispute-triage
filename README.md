@@ -25,7 +25,7 @@ Full tables: [comparison](results/comparison_v2.md) · [routing](results/routing
 
 **What I learned**
 
-- **Accuracy didn't separate the models; safety did.** All three were 95–98% accurate in the first round, but only Claude's confidence tracked its errors. The local models scored almost everything 0.85–0.95, so a single review threshold caught nothing. **Thresholds must be calibrated for each model.**
+- **Accuracy didn't separate the models; safety did.** All three were 95–98% accurate in the first round, but only Claude's confidence tracked its errors. The local models gave every answer between 0.85 and 0.95 confidence, so a single review threshold caught almost nothing. **Thresholds must be calibrated for each model.**
 - **Half of the first-round errors came from a gap in the spec, not the models:** complaints with two claims and no rule for which wins. → [Failure analysis](docs/failure_analysis_v1.md)
 - **The same prompt fix helped the 4B and hurt the 9B** (96% → 89%). Kept as a negative result.
 - **Two models agreeing is a better signal than one model's confidence.** But two models from the same family share blind spots.

@@ -1,6 +1,6 @@
 # PRD: Dispute-triage assistant for small merchants
 
-**Status:** Draft v1 · **Owner:** Sebastian · **Date:** 5 Oct 2026 · Prototype using synthetic data and public card-scheme guidance only.
+**Status:** v1.1 (targets confirmed after the baseline run) · **Owner:** Sebastian · **Date:** 5 Oct 2026 · Prototype using synthetic data and public card-scheme guidance only.
 
 ## User
 The owner or operations lead at a small online merchant: a few staff, no payments or risk team, and disputes handled between other jobs. They see a few chargebacks a month, through their payment provider's dashboard.
@@ -22,14 +22,14 @@ Measured per model on the labelled synthetic evaluation set: 80 cases (60 minimu
 | Metric | Definition | Target |
 |---|---|---|
 | Category accuracy | Predicted category = gold label; also reported separately for easy and ambiguous cases | **≥ 85%** overall |
-| Evidence recall | Share of the gold evidence items for each case that appear in the recommendation, averaged across cases | ≥ 80% (provisional) |
-| Latency | Median and p90 seconds from request to complete JSON | p90 ≤ 20 s local, ≤ 10 s Claude (provisional) |
-| Cost per case | API spend ÷ cases (also shown per 1,000 cases); local models = £0 marginal | ≤ $0.02 Claude (provisional) |
+| Evidence recall | Share of the gold evidence items for each case that appear in the recommendation, averaged across cases | ≥ 80% |
+| Latency | Median and p90 seconds from request to complete JSON | p90 ≤ 20 s local, ≤ 10 s Claude |
+| Cost per case | API spend ÷ cases (also shown per 1,000 cases); local models = £0 marginal | ≤ $0.02 Claude |
 | *Guardrail:* confident-but-wrong rate | Share of cases *not* flagged for review that are wrong | ≤ 5% |
 | *Guardrail:* review rate | Share of cases flagged for human review | ≤ 30% |
 | *Guardrail:* valid JSON | Output passes the schema check (one retry allowed) | 100% |
 
-Provisional targets will be set properly after the first baseline run, and each change will be recorded in the iteration log.
+Three targets were marked provisional in v1. After the baseline run **I kept them unchanged**, so no target was moved after seeing results.
 
 ## Human-review rule
 Flag `needs_human_review = true` if **any** of these is true:
@@ -42,7 +42,10 @@ Flag `needs_human_review = true` if **any** of these is true:
 ## Risks and mitigations
 - **Wrong category leads to wrong evidence and a lost dispute.** Mitigation: the human-review rule, plus the confident-but-wrong guardrail.
 - **Self-reported confidence from small models is poorly calibrated.** Mitigation: tune the threshold against observed accuracy rather than trusting the raw score; report a calibration table.
-- **Invented rules or reason codes.** Mitigation: explanations must cite retrieved passages, and any reason codes in the output are validated against the category list.
+- **Invented rules or reason codes.** Mitigation: explanations must cite retrieved passages, and categories and evidence IDs are validated against fixed lists.
 - **Synthetic data is cleaner than real complaints.** Mitigation: include the confusion pairs, short or vague narratives, and noise. Results don't claim to reflect real-world performance.
 - **Scheme rules change.** Mitigation: sources are dated in `docs/categories.md`. This is a prototype, not operational guidance.
 - **Local model limits on 24 GB.** Mitigation: one model loaded at a time, a fixed 8,192-token context, and thinking mode off.
+
+## Change log
+- **v1.1:** provisional targets confirmed unchanged. Categories reduced from 7 to 6 (`authorisation_issue` merged into `processing_error` during labelling). Labelling rules added: received-or-used test, claim priority (H1), recurring signal (H2). See the labelling rules log in `docs/categories.md`.
