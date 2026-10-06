@@ -1,6 +1,5 @@
 # Failure analysis: v1 runs
 
-**Status:** first-pass analysis drafted by Claude from `results/error_review_v1.md`, for Sebastian to review. Failure types and relabel proposals are recommendations; **no gold labels have been changed.**
 
 Scope: every wrong answer in `claude_v1`, `qwen4b_v1` and `qwen9b_v1` (prompt v1, 80 cases): **16 errors across 9 cases** (Claude 4, Qwen 4B 6, Qwen 9B 6).
 
