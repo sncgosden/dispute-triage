@@ -1,6 +1,6 @@
 # Dispute-triage assistant for small merchants
 
-**Problem.** When a small merchant receives a card dispute (chargeback), they often don't know what they're being accused of or which evidence would win, so they accept the loss or submit evidence that doesn't answer the claim. This prototype reads the cardholder's complaint and returns the dispute category, the evidence to submit, and a short explanation that cites the rules, with a human-review flag when it isn't sure.
+**Problem.** When a small merchant receives a card dispute (chargeback), they often don't have a clear understanding of the claim or of which evidence would win, so they accept the loss or submit evidence that doesn't answer the claim. This prototype reads the cardholder's complaint and returns the dispute category, the evidence to submit, and a short explanation that cites the rules, with a human-review flag when it isn't sure.
 
 **Decision:** launch with **Claude plus human review** (98% accuracy, 0 confident errors, under 1p per dispute). **Agreement routing** between two local models matched Claude's accuracy at about 3% of the cost, but misses the evidence target, so it's the scale-up path, not the launch option. → [Decision memo](docs/decision_memo.md)
 
