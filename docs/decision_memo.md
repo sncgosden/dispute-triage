@@ -1,10 +1,9 @@
 # Decision memo: dispute-triage assistant
 
-**Recommendation:** ship **Option A, Claude with human review**, to a pilot group of small merchants. Plan **Option B, local agreement routing**, as the scale-up path once real merchant data confirms its signal.
+**Decision:** ship **Option A, Claude with human review**, to a pilot group of small merchants. Plan **Option B, local agreement routing**, as the scale-up path once real merchant data confirms its signal.
 
-All numbers: 80 synthetic cases, labelled by me, scored on corrected labels (`results/comparison_v2.md`, `results/routing_v2.md`). One case = 1.25 points of accuracy.
+All numbers: 80 synthetic cases, labelled by a human, scored on corrected labels (`results/comparison_v2.md`, `results/routing_v2.md`). One case = 1.25 points of accuracy.
 
-## The decision
 
 | | A. Claude + review (**launch**) | B. 4B + 9B agree, else Claude (**scale-up**) |
 |---|---|---|
